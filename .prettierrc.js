@@ -1,4 +1,5 @@
 module.exports = {
+    "bracketSpacing": false,
     "trailingComma": "all",
     "tabWidth": 2,
     "semi": false,

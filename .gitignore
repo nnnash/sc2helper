@@ -24,3 +24,5 @@ yarn-error.log*
 
 .idea
 .eslintcache
+.linaria-cache
+/src/.linaria_cache
