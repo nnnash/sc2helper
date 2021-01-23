@@ -2,6 +2,7 @@ import React from 'react'
 import {styled} from '@linaria/react'
 
 import UnitDescription from './UnitDescription'
+import {AttDefProvider, AttDefValue} from '../context'
 
 const Wrapper = styled.section`
   height: 100%;
@@ -21,8 +22,12 @@ const Container = styled.div`
 const Comparision = () => (
   <Wrapper>
     <Container>
-      <UnitDescription />
-      <UnitDescription isDefender />
+      <AttDefProvider attDef={AttDefValue.attack}>
+        <UnitDescription />
+      </AttDefProvider>
+      <AttDefProvider attDef={AttDefValue.defend}>
+        <UnitDescription />
+      </AttDefProvider>
     </Container>
   </Wrapper>
 )

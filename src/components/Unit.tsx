@@ -6,6 +6,7 @@ import {Unit as TUnit} from '../types/models'
 import {styled} from '@linaria/react'
 import {css} from '@linaria/core'
 import actions from '../redux/actions'
+import {AttDefValue, useAttDef} from '../context'
 
 const Title = styled.h5`
   min-width: 100px;
@@ -46,11 +47,11 @@ const Img = styled.img<{isBig?: boolean}>`
 
 interface UnitProps {
   unit: TUnit
-  isDefender?: boolean
   isClickable?: boolean
 }
-const Unit = ({unit, isDefender, isClickable}: UnitProps) => {
+const Unit = ({unit, isClickable}: UnitProps) => {
   const dispatch = useDispatch()
+  const isDefender = useAttDef() === AttDefValue.defend
   return (
     <div
       className={cn(container, isClickable && clickable)}

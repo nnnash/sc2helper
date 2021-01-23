@@ -9,12 +9,11 @@ const Container = styled.div`
 `
 interface UnitListProps {
   units: Array<TUnit>
-  isDefender?: boolean
 }
-const UnitList = ({units, isDefender}: UnitListProps) => (
+const UnitList = ({units}: UnitListProps) => (
   <Container>
     {units.map((item) => (
-      <Unit unit={item} key={`unit-${item.name}`} isDefender={isDefender} isClickable />
+      <Unit unit={item} key={`unit-${item.name}`} isClickable />
     ))}
   </Container>
 )

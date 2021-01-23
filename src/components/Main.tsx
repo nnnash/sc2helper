@@ -4,6 +4,7 @@ import {styled} from '@linaria/react'
 import UnitList from './UnitList'
 import Comparision from './Comparision'
 import {PROTOSS_DATA, TERRAN_DATA, ZERG_DATA} from '../data/units'
+import {AttDefProvider, AttDefValue} from '../context'
 
 const Container = styled.div`
   display: flex;
@@ -27,27 +28,31 @@ const Results = styled.div`
 
 const Main = () => (
   <Container>
-    <List>
-      <UnitList units={ZERG_DATA} />
-    </List>
-    <List>
-      <UnitList units={TERRAN_DATA} />
-    </List>
-    <List>
-      <UnitList units={PROTOSS_DATA} />
-    </List>
+    <AttDefProvider attDef={AttDefValue.attack}>
+      <List>
+        <UnitList units={ZERG_DATA} />
+      </List>
+      <List>
+        <UnitList units={TERRAN_DATA} />
+      </List>
+      <List>
+        <UnitList units={PROTOSS_DATA} />
+      </List>
+    </AttDefProvider>
     <Results>
       <Comparision />
     </Results>
-    <List>
-      <UnitList units={PROTOSS_DATA} isDefender />
-    </List>
-    <List>
-      <UnitList units={TERRAN_DATA} isDefender />
-    </List>
-    <List>
-      <UnitList units={ZERG_DATA} isDefender />
-    </List>
+    <AttDefProvider attDef={AttDefValue.defend}>
+      <List>
+        <UnitList units={PROTOSS_DATA} />
+      </List>
+      <List>
+        <UnitList units={TERRAN_DATA} />
+      </List>
+      <List>
+        <UnitList units={ZERG_DATA} />
+      </List>
+    </AttDefProvider>
   </Container>
 )
 
