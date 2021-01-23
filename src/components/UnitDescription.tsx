@@ -46,7 +46,7 @@ const getAttributeInfo = (name: Attribute | UnitType | UnitDescriptions): Attrib
 const getIcons = (unit: TUnit) => [
   UNIT_TYPE[unit.type],
   ...unit.attributes.map((attr) => ATTRIBUTES[attr]),
-  ...(unit?.descriptions?.map((desc) => UNIT_DESCRIPTION[desc]) || []),
+  ...(unit.description ? [UNIT_DESCRIPTION[unit.description]] : []),
   ...(unit.attackLimit ? [ATTACK_LIMIT[unit.attackLimit]] : []),
   ...(unit.support2 ? [BONUS.support] : []),
 ]

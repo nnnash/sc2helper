@@ -58,7 +58,7 @@ export interface Unit {
   gas: number
   build: string
   attributes: Array<Attribute>
-  descriptions?: Array<UnitDescriptions>
+  description?: UnitDescriptions
   attackLimit?: UnitType
   cards: Array<UnitCard>
   attackBonus?: Array<CardBonusValue>

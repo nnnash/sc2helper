@@ -94,7 +94,7 @@ const mapRaw = (rawData: Array<Raw>) =>
     (item: Raw): Unit => ({
       name: item.name,
       type: ['c', 's'].includes(item.build[0]) ? UnitType.air : UnitType.ground,
-      descriptions: item.melee ? (item.a1 ? [UnitDescriptions.melee] : [UnitDescriptions.assist]) : undefined,
+      description: !item.a1 ? UnitDescriptions.assist : item.melee ? UnitDescriptions.melee : undefined,
       attackLimit: item.attLimit ? (item.attLimit === 'a' ? UnitType.air : UnitType.ground) : undefined,
       minerals: 3,
       gas: item.vg,
