@@ -1,6 +1,6 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "sc2helper",
+  "name": "Starcraft 2 board game helper",
   "icons": [
     {
       "src": "favicon.ico",
