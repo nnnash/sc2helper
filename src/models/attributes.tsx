@@ -1,6 +1,6 @@
 import React from 'react'
 
-import {Attribute, AttributeInfo, Bonus, UnitDescriptions, UnitType} from '../types/models'
+import {Attribute, AttributeInfo, BaseUnitType, Bonus, UnitDescriptions, UnitType} from '../types/models'
 import Heroic from '../img/superman.svg'
 import Psi from '../img/psychology-symbol.svg'
 import Armor from '../img/shield.svg'
@@ -79,6 +79,26 @@ export const UNIT_TYPE: {[K in UnitType]: AttributeInfo} = {
     color: '#52432f',
     tooltip: 'Ground unit',
   },
+  [UnitType.both]: {
+    id: UnitType.both,
+    svg: (
+      <div>
+        <Ground /> + <Air />
+      </div>
+    ),
+    color: 'black',
+    tooltip: 'Ground unit but tall enough to be targeted by anti air gun',
+  },
+  [UnitType.transform]: {
+    id: UnitType.transform,
+    svg: (
+      <div>
+        <Ground /> / <Air />
+      </div>
+    ),
+    color: 'black',
+    tooltip: 'Either ground or air depending on enemy',
+  },
 }
 
 export const UNIT_DESCRIPTION: {[K in UnitDescriptions]: AttributeInfo} = {
@@ -135,7 +155,7 @@ export const BONUS: {[K in Bonus]: AttributeInfo} = {
   },
 }
 
-export const ATTACK_LIMIT: {[K in UnitType]: AttributeInfo} = {
+export const ATTACK_LIMIT: {[K in BaseUnitType]: AttributeInfo} = {
   [UnitType.air]: {
     id: UnitType.air,
     svg: <AirAttack />,

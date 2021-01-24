@@ -8,7 +8,7 @@ const SIZE = 30
 const Tooltip = styled.div`
   position: absolute;
   bottom: 110%;
-  left: 0;
+  right: 0;
   visibility: hidden;
   color: white;
   background: #031e3a;

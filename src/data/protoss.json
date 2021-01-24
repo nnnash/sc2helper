@@ -235,7 +235,7 @@
     "bo4": "s l",
     "tech1": "Extended thermal lance",
     "attLimit": "g",
-    "feature": "Colossus can be attacked both as ground and air unit",
+    "feature": "Ground unit, but air units with ability to attack air units attack him as an air unit",
     "img": "https://pngimg.com/uploads/starcraft/starcraft_PNG13.png"
   },
   {

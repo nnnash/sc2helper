@@ -47,9 +47,12 @@ const OTHER_ABBR: {[key: string]: string} = {
 const getAbbrValue = (val: string): BonusAttributeLimitation => {
   const negative = val[0] === '!'
   const abbr = negative ? val.slice(1) : val
+  let isDefender
+  if (OTHER_ABBR[abbr]) isDefender = true
   const value = ATTR[abbr] || TYPE[abbr] || DESCRIPTION[abbr] || BONUS[abbr] || OTHER_ABBR[abbr] || abbr
   return {
     type: value,
+    isDefender,
     negative,
   }
 }
@@ -89,11 +92,16 @@ const getCards = (unit: Raw) =>
     ]
   }, [])
 
+const getUnitType = ({name, build}: Raw): UnitType => {
+  if (name === 'Colossus') return UnitType.both
+  if (name === 'Viking') return UnitType.transform
+  return ['c', 's'].includes(build[0]) ? UnitType.air : UnitType.ground
+}
 const mapRaw = (rawData: Array<Raw>) =>
   rawData.map(
     (item: Raw): Unit => ({
       name: item.name,
-      type: ['c', 's'].includes(item.build[0]) ? UnitType.air : UnitType.ground,
+      type: getUnitType(item),
       description: !item.a1 ? UnitDescriptions.assist : item.melee ? UnitDescriptions.melee : undefined,
       attackLimit: item.attLimit ? (item.attLimit === 'a' ? UnitType.air : UnitType.ground) : undefined,
       minerals: 3,

@@ -13,7 +13,10 @@ export enum Attribute {
 export enum UnitType {
   ground = 'ground',
   air = 'air',
+  transform = 'transform',
+  both = 'both',
 }
+export type BaseUnitType = UnitType.air | UnitType.ground
 
 export enum UnitDescriptions {
   melee = 'melee',
@@ -31,6 +34,7 @@ export enum Bonus {
 
 export interface BonusAttributeLimitation {
   type: Attribute | UnitType | UnitDescriptions
+  isDefender?: boolean
   negative?: boolean
 }
 export interface CardBonusValue {
@@ -59,7 +63,7 @@ export interface Unit {
   build: string
   attributes: Array<Attribute>
   description?: UnitDescriptions
-  attackLimit?: UnitType
+  attackLimit?: BaseUnitType
   cards: Array<UnitCard>
   attackBonus?: Array<CardBonusValue>
   otherBonus?: Array<OtherBonusValue>
