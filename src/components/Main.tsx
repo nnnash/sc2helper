@@ -5,9 +5,11 @@ import UnitList from './UnitList'
 import Comparision from './Comparision'
 import {PROTOSS_DATA, TERRAN_DATA, ZERG_DATA} from '../data/units'
 import {AttDefProvider, AttDefValue} from '../context'
+import Footer from './Footer'
 
 const Container = styled.div`
   display: flex;
+  padding: 30px;
   min-width: 100%;
   min-height: 100%;
 `
@@ -27,33 +29,36 @@ const Results = styled.div`
 `
 
 const Main = () => (
-  <Container>
-    <AttDefProvider attDef={AttDefValue.attack}>
-      <List>
-        <UnitList units={ZERG_DATA} />
-      </List>
-      <List>
-        <UnitList units={TERRAN_DATA} />
-      </List>
-      <List>
-        <UnitList units={PROTOSS_DATA} />
-      </List>
-    </AttDefProvider>
-    <Results>
-      <Comparision />
-    </Results>
-    <AttDefProvider attDef={AttDefValue.defend}>
-      <List>
-        <UnitList units={PROTOSS_DATA} />
-      </List>
-      <List>
-        <UnitList units={TERRAN_DATA} />
-      </List>
-      <List>
-        <UnitList units={ZERG_DATA} />
-      </List>
-    </AttDefProvider>
-  </Container>
+  <>
+    <Container>
+      <AttDefProvider attDef={AttDefValue.attack}>
+        <List>
+          <UnitList units={ZERG_DATA} />
+        </List>
+        <List>
+          <UnitList units={TERRAN_DATA} />
+        </List>
+        <List>
+          <UnitList units={PROTOSS_DATA} />
+        </List>
+      </AttDefProvider>
+      <Results>
+        <Comparision />
+      </Results>
+      <AttDefProvider attDef={AttDefValue.defend}>
+        <List>
+          <UnitList units={PROTOSS_DATA} />
+        </List>
+        <List>
+          <UnitList units={TERRAN_DATA} />
+        </List>
+        <List>
+          <UnitList units={ZERG_DATA} />
+        </List>
+      </AttDefProvider>
+    </Container>
+    <Footer />
+  </>
 )
 
 export default Main
