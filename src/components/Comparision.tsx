@@ -3,6 +3,7 @@ import {styled} from '@linaria/react'
 
 import UnitDescription from './UnitDescription'
 import {AttDefProvider, AttDefValue} from '../context'
+import {MOBILE_WIDTH} from '../constants'
 
 const Wrapper = styled.section`
   height: 100%;
@@ -14,9 +15,13 @@ const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  height: calc(100vh - ${TOP_MARGIN * 2}px);
+  min-height: calc(100vh - ${TOP_MARGIN * 2}px);
   position: sticky;
   top: ${TOP_MARGIN}px;
+
+  @media (max-width: ${MOBILE_WIDTH}px) {
+    flex-direction: column;
+  }
 `
 
 const Comparision = () => (

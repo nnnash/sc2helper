@@ -1,15 +1,23 @@
 import React from 'react'
 import {styled} from '@linaria/react'
+import {MOBILE_WIDTH} from '../constants'
 
 const Container = styled.footer`
   display: flex;
   justify-content: space-between;
+  width: 100%;
   padding: 10px 30px 20px;
   background: #031e3a;
   color: white;
   font-size: 14px;
   & a {
     color: #0b71db;
+  }
+  @media (max-width: ${MOBILE_WIDTH}px) {
+    padding: 4px;
+    & * {
+      font-size: 8px;
+    }
   }
 `
 const Title = styled.h4`

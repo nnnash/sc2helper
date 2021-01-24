@@ -1,5 +1,5 @@
 import React from 'react'
-import {shallowEqual, useSelector} from 'react-redux'
+import {shallowEqual, useSelector, useDispatch} from 'react-redux'
 import {styled} from '@linaria/react'
 
 import {Attribute, AttributeInfo, Unit as TUnit, UnitDescriptions, UnitType} from '../types/models'
@@ -9,15 +9,30 @@ import Icon, {ComplexIcon, ValuedBonusIcons} from './Icon'
 import {ATTACK_LIMIT, ATTRIBUTES, BONUS, UNIT_DESCRIPTION, UNIT_TYPE} from '../models/attributes'
 import UnitCards from './UnitCards'
 import {AttDefValue, useAttDef} from '../context'
+import actions from '../redux/actions'
+import {MIDDLE_WIDTH, MOBILE_WIDTH} from '../constants'
 
 const Title = styled.h2<{isDefender?: boolean}>`
   color: ${(props) => (props.isDefender ? '#126312' : '#8e2929')};
   text-align: center;
+  @media (max-width: ${MIDDLE_WIDTH}px) {
+    cursor: pointer;
+    &:hover {
+      opacity: 0.7;
+    }
+  }
+  @media (max-width: ${MOBILE_WIDTH}px) {
+    font-size: 14px;
+    margin: 4px;
+  }
 `
 const Container = styled.div`
   margin: 20px;
   background: rgba(255, 255, 255, 0.7);
   width: 100%;
+  @media (max-width: ${MOBILE_WIDTH}px) {
+    margin: 4px;
+  }
 `
 const UnitBG = styled.div`
   display: flex;
@@ -27,6 +42,9 @@ const UnitBG = styled.div`
   min-height: 80px;
   padding: 20px 10px 10px;
   background: rgba(0, 0, 0, 0.5);
+  @media (max-width: ${MOBILE_WIDTH}px) {
+    min-height: 30px;
+  }
 `
 const DescriptionBG = styled.div`
   min-height: 200px;
@@ -55,11 +73,21 @@ const getIcons = (unit: TUnit) => [
 
 const UnitDescription = () => {
   const isDefender = useAttDef() === AttDefValue.defend
+  const dispatch = useDispatch()
   const unit = useSelector((state: GlobalState) => (isDefender ? state.defender : state.attacker), shallowEqual)
 
   return (
     <Container>
-      <Title isDefender={isDefender}>{isDefender ? 'Defender' : 'Attacker'}</Title>
+      <Title
+        isDefender={isDefender}
+        onClick={() => {
+          dispatch(isDefender ? actions.setOpenDefendList(true) : actions.setOpenAttackList(true))
+          if (window.innerWidth < MIDDLE_WIDTH)
+            dispatch(dispatch(!isDefender ? actions.setOpenDefendList(false) : actions.setOpenAttackList(false)))
+        }}
+      >
+        {isDefender ? 'Defender' : 'Attacker'}
+      </Title>
       <UnitBG>{!!unit && <Unit unit={unit} />}</UnitBG>
       <DescriptionBG>
         {!!unit && (

@@ -6,6 +6,9 @@ import Unit from './Unit'
 
 const Container = styled.div`
   padding: 10px;
+  & > * {
+    margin-bottom: 20px;
+  }
 `
 interface UnitListProps {
   units: Array<TUnit>

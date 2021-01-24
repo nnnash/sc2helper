@@ -5,9 +5,13 @@ import {styled} from '@linaria/react'
 import {Attribute, BaseUnitType, Unit, UnitCard, UnitDescriptions, UnitType} from '../types/models'
 import {GlobalState} from '../redux/reducers'
 import {AttDefValue, useAttDef} from '../context'
+import {MOBILE_WIDTH} from '../constants'
 
 const Container = styled.div`
   padding: 10px;
+  @media (max-width: ${MOBILE_WIDTH}px) {
+    padding: 0 10px 4px;
+  }
 `
 const Title = styled.h3`
   text-align: center;
