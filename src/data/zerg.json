@@ -49,8 +49,8 @@
     "tech1": "Centrifugal hooks",
     "melee": 1,
     "attLimit": "g",
-    "img": "https://play-lh.googleusercontent.com/f0sDXamzvbVAW6r9uSrXiIfxbq9BaRx2bptFRMLWDXkxs39ixOzkvvLAl0QBLrs5TA",
-    "feature": "Dies after every battle"
+    "feature": "Dies after every battle",
+    "img": "https://play-lh.googleusercontent.com/f0sDXamzvbVAW6r9uSrXiIfxbq9BaRx2bptFRMLWDXkxs39ixOzkvvLAl0QBLrs5TA"
   },
   {
     "name": "Roach",
@@ -140,7 +140,7 @@
     "ba3": "1 a",
     "c4": "6/6",
     "ba4": "1 a",
-    "commBo": "ls / c",
+    "commBo": "c / ls",
     "tech1": "Seismic Spines",
     "attLimit": "g",
     "img": "http://www.teamliquid.net/staff/monk/Kerrigancoop/TransparentSized/Lurker.png"
@@ -164,7 +164,7 @@
     "c2": "6/7",
     "c3": "6/6",
     "c4": "7/6",
-    "commBo": "c",
+    "commBo": "c / r",
     "attLimit": "g",
     "img": "https://tl.net/staff/Chimaron/Guides/Abathur/Swarm_Host.png"
   },
@@ -179,7 +179,7 @@
     "tech1": "Neural parasite",
     "tech2": "Fungal growth",
     "tech3": "Microbial shroud",
-    "img": "http://enoughmod.com/images/gameObjectImages/Zerg/Infestor.png"
+    "img": "http://images.ctrustnetwork.com/static_pages/gaming/starcraft/unit_images_white/small/starcraft.2.infestor.png"
   },
   {
     "name": "Ultralisk",
@@ -204,8 +204,8 @@
     "tech1": "Anabolic synthesis",
     "melee": 1,
     "attLimit": "g",
-    "img": "http://www.teamliquid.net/staff/monk/Kerrigancoop/TransparentSized/Ultralisk.png",
-    "support2": 1
+    "support2": 1,
+    "img": "http://www.teamliquid.net/staff/monk/Kerrigancoop/TransparentSized/Ultralisk.png"
   },
   {
     "name": "Mutalisk",
@@ -276,8 +276,8 @@
     "c4": "9/9",
     "commBo": "r",
     "attLimit": "g",
-    "img": "http://www.teamliquid.net/staff/monk/Kerrigancoop/TransparentSized/Brood_Lord.png",
-    "support2": 1
+    "support2": 1,
+    "img": "http://www.teamliquid.net/staff/monk/Kerrigancoop/TransparentSized/Brood_Lord.png"
   },
   {
     "name": "Viper",
@@ -312,7 +312,7 @@
     "c3": "5/6",
     "c4": "5/5",
     "ba4": "1 fl",
-    "img": "http://www.teamliquid.net/staff/monk/Coopguides/Zagara/Queen.png",
-    "feature": "Can only stay in the area with a base"
+    "feature": "Can only stay in the area with a base",
+    "img": "http://www.teamliquid.net/staff/monk/Coopguides/Zagara/Queen.png"
   }
 ]
