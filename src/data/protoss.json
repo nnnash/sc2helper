@@ -158,6 +158,7 @@
     "c4": "8/8",
     "ba4": "1 b",
     "commBa": "1 b",
+    "commBo": "s mel",
     "melee": 1,
     "support2": 1,
     "img": "http://www.teamliquid.net/staff/monk/Coopguides/Artanis/Archon.png"
@@ -188,8 +189,8 @@
   {
     "name": "Disruptor",
     "m": 1,
-    "vg": 3,
-    "pr": 4,
+    "vg": 2,
+    "pr": 3,
     "build": "r2",
     "attr": "a,m",
     "a1": 8,
@@ -235,7 +236,7 @@
     "bo4": "s l",
     "tech1": "Extended thermal lance",
     "attLimit": "g",
-    "feature": "Ground unit, but air units with ability to attack air units attack him as an air unit",
+    "feature": "Ground unit, but air units with ability to attack air units attack him as an air unit.",
     "img": "https://pngimg.com/uploads/starcraft/starcraft_PNG13.png"
   },
   {
@@ -325,9 +326,9 @@
   },
   {
     "name": "Carrier",
-    "m": 4,
+    "m": 3,
     "vg": 3,
-    "pr": 7,
+    "pr": 6,
     "build": "s2",
     "attr": "a,m,ms",
     "a1": 9,
