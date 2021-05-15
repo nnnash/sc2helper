@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {FC} from 'react'
 import {useSelector, shallowEqual} from 'react-redux'
 import {styled} from '@linaria/react'
 
@@ -9,6 +9,7 @@ import {AttDefProvider, AttDefValue} from '../context'
 import Footer from './Footer'
 import {BOTTOM_WIDTH, MIDDLE_WIDTH, MOBILE_WIDTH, TOP_WIDTH} from '../constants'
 import {GlobalState} from '../redux/reducers'
+import PriceModal from './PriceModal'
 
 const Container = styled.div`
   display: flex;
@@ -19,7 +20,7 @@ const Container = styled.div`
     padding: 0;
   }
 `
-const List = styled.div`
+const List: FC = React.memo(styled.div`
   flex-grow: 0;
   min-width: 120px;
   & + & {
@@ -28,7 +29,7 @@ const List = styled.div`
   @media (max-width: ${TOP_WIDTH}px) {
     min-width: auto;
   }
-`
+`)
 const Results = styled.div`
   flex-grow: 1;
   min-width: 500px;
@@ -101,6 +102,7 @@ const Main = () => {
         </AttDefProvider>
       </Container>
       <Footer />
+      <PriceModal />
     </>
   )
 }

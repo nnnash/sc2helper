@@ -21,4 +21,4 @@ const UnitList = ({units}: UnitListProps) => (
   </Container>
 )
 
-export default UnitList
+export default React.memo(UnitList)

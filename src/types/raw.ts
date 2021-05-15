@@ -1,4 +1,6 @@
-export interface Raw {
+import {Race} from './models'
+
+export interface RawUnit {
   name: string
   m: number
   vg: number
@@ -47,4 +49,24 @@ export interface Raw {
   img?: string
   support2?: number
   feature?: string
+}
+
+export interface RawBuilding {
+  race: string
+  name: string
+  m: number
+  vg: number
+  img: string
+}
+
+export interface RawTech {
+  race: string
+  name: string
+  m: number
+  vg: number
+}
+
+export interface Raw extends Record<Race, Array<RawUnit>> {
+  buildings: Array<RawBuilding>
+  techs: Array<RawTech>
 }

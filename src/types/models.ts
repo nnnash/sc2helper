@@ -82,3 +82,23 @@ export interface AttributeInfo {
   color: string
   tooltip: string
 }
+
+export enum Race {
+  protoss = 'protoss',
+  zerg = 'zerg',
+  terran = 'terran',
+}
+
+export enum PriceItemType {
+  unit = 'unit',
+  tech = 'tech',
+  building = 'building',
+}
+
+export interface PricedItem {
+  name: string
+  img: string
+  minerals: number
+  gas: number
+  type: PriceItemType
+}

@@ -10,29 +10,7 @@ import {AttDefValue, useAttDef} from '../context'
 import {BOTTOM_WIDTH, MOBILE_WIDTH, TOP_WIDTH} from '../constants'
 import {GlobalState} from '../redux/reducers'
 import infestor from '../img/infestor.png'
-
-const Title = styled.h5`
-  min-width: 100px;
-  margin: 0;
-  display: block;
-  color: white;
-  padding: 4px 10px;
-  background: linear-gradient(90deg, #813f01, #b46b0a, #ad650b);
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  clip-path: polygon(9px 0, 100% 0, 100% 70%, 93% 100%, 0 100%, 0 33%);
-  box-shadow: inset 0 0 2px 3px white;
-  white-space: nowrap;
-
-  @media (max-width: ${TOP_WIDTH}px) {
-    font-size: 12px;
-    min-width: auto;
-    max-width: 90px;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-`
+import UnitTitle from './UnitTitle'
 
 const container = css`
   position: relative;
@@ -90,7 +68,7 @@ const Unit = ({unit, isClickable}: UnitProps) => {
         }
       }}
     >
-      <Title>{unit.name}</Title>
+      <UnitTitle>{unit.name}</UnitTitle>
       <Img isBig={!isClickable} src={unit?.img === 'infestor' ? infestor : unit.img} alt="no image" />
     </div>
   )

@@ -4,6 +4,8 @@ import {styled} from '@linaria/react'
 import UnitDescription from './UnitDescription'
 import {AttDefProvider, AttDefValue} from '../context'
 import {MOBILE_WIDTH} from '../constants'
+import {useDispatch} from 'react-redux'
+import actions from '../redux/actions'
 
 const Wrapper = styled.section`
   height: 100%;
@@ -23,18 +25,44 @@ const Container = styled.div`
     flex-direction: column;
   }
 `
+const Button = styled.button`
+  font-size: 20px;
+  position: absolute;
+  top: 50px;
+  padding: 8px 16px;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  cursor: pointer;
+  &:hover {
+    background-color: rgba(255, 255, 255, 0.13);
+  }
+  @media (max-width: ${MOBILE_WIDTH}px) {
+    top: 10px;
+    left: 10px;
+    padding: 2px 4px;
+    font-size: 1em;
+    border-color: #031e3a;
+    color: #031e3a;
+    background-color: white;
+  }
+`
 
-const Comparision = () => (
-  <Wrapper>
-    <Container>
-      <AttDefProvider attDef={AttDefValue.attack}>
-        <UnitDescription />
-      </AttDefProvider>
-      <AttDefProvider attDef={AttDefValue.defend}>
-        <UnitDescription />
-      </AttDefProvider>
-    </Container>
-  </Wrapper>
-)
+const Comparision = () => {
+  const dispatch = useDispatch()
+  return (
+    <Wrapper>
+      <Container>
+        <AttDefProvider attDef={AttDefValue.attack}>
+          <UnitDescription />
+        </AttDefProvider>
+        <AttDefProvider attDef={AttDefValue.defend}>
+          <UnitDescription />
+        </AttDefProvider>
+        <Button onClick={() => dispatch(actions.togglePriceModal(true))}>Purchase helper</Button>
+      </Container>
+    </Wrapper>
+  )
+}
 
 export default Comparision

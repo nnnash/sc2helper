@@ -1,6 +1,6 @@
 import {pick} from 'lodash'
 
-import {Raw} from '../types/raw'
+import {RawUnit} from '../types/raw'
 import {
   Attribute,
   Bonus,
@@ -12,9 +12,9 @@ import {
   UnitDescriptions,
   UnitType,
 } from '../types/models'
-import protossData from './protoss.json'
-import zergData from './zerg.json'
-import terranData from './terran.json'
+import data from './data.json'
+
+const {protoss, terran, zerg} = data
 
 const ATTR: {[key: string]: Attribute} = {
   l: Attribute.light,
@@ -73,18 +73,18 @@ const getOtherBonusValue = (val: string): OtherBonusValue => {
 }
 const getBonuses = (bonusVal: string) => bonusVal.split(' / ').map(getBonusValue)
 const getOtherBonuses = (bonusVal: string) => bonusVal.split(' / ').map(getOtherBonusValue)
-const getCards = (unit: Raw) =>
+const getCards = (unit: RawUnit) =>
   Array.from({length: 5}).reduce<Array<UnitCard>>((acc, _, ind) => {
     const cardNum = ind + 1
-    if (!unit[`a${cardNum}` as keyof Raw]) return acc
-    const attackBonus = unit[`ba${cardNum}` as keyof Raw] as string
-    const healthBonus = unit[`bd${cardNum}` as keyof Raw] as string
-    const otherBonus = unit[`bo${cardNum}` as keyof Raw] as string
+    if (!unit[`a${cardNum}` as keyof RawUnit]) return acc
+    const attackBonus = unit[`ba${cardNum}` as keyof RawUnit] as string
+    const healthBonus = unit[`bd${cardNum}` as keyof RawUnit] as string
+    const otherBonus = unit[`bo${cardNum}` as keyof RawUnit] as string
     return [
       ...acc,
       {
-        attack: unit[`a${cardNum}` as keyof Raw] as number,
-        health: unit[`d${cardNum}` as keyof Raw] as number,
+        attack: unit[`a${cardNum}` as keyof RawUnit] as number,
+        health: unit[`d${cardNum}` as keyof RawUnit] as number,
         attackBonus: (attackBonus && getBonuses(attackBonus)) as UnitCard['attackBonus'],
         healthBonus: (healthBonus && getBonuses(healthBonus)) as UnitCard['healthBonus'],
         otherBonus: (otherBonus && getOtherBonuses(otherBonus)) as UnitCard['otherBonus'],
@@ -92,14 +92,14 @@ const getCards = (unit: Raw) =>
     ]
   }, [])
 
-const getUnitType = ({name, build}: Raw): UnitType => {
+const getUnitType = ({name, build}: RawUnit): UnitType => {
   if (name === 'Colossus') return UnitType.both
   if (name === 'Viking') return UnitType.transform
   return ['c', 's'].includes(build[0]) ? UnitType.air : UnitType.ground
 }
-const mapRaw = (rawData: Array<Raw>) =>
+const mapRaw = (rawData: Array<RawUnit>) =>
   rawData.map(
-    (item: Raw): Unit => ({
+    (item: RawUnit): Unit => ({
       name: item.name,
       type: getUnitType(item),
       description: !item.a1 ? UnitDescriptions.assist : item.melee ? UnitDescriptions.melee : undefined,
@@ -116,6 +116,6 @@ const mapRaw = (rawData: Array<Raw>) =>
     }),
   )
 
-export const PROTOSS_DATA = mapRaw(protossData)
-export const ZERG_DATA = mapRaw(zergData)
-export const TERRAN_DATA = mapRaw(terranData)
+export const PROTOSS_DATA = mapRaw(protoss)
+export const ZERG_DATA = mapRaw(zerg)
+export const TERRAN_DATA = mapRaw(terran)

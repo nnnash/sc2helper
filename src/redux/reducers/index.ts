@@ -1,6 +1,7 @@
 import {createReducer} from 'typesafe-actions'
+import {omit} from 'lodash'
 
-import {Unit} from '../../types/models'
+import {PricedItem, PriceItemType, Race, Unit} from '../../types/models'
 import actions, {RootAction} from '../actions'
 
 export interface GlobalState {
@@ -8,11 +9,29 @@ export interface GlobalState {
   defender?: Unit
   attackListOpen: boolean
   defendListOpen: boolean
+  filter: PriceItemType | null
+  race: Race
+  initialMinerals: number
+  initialGas: number
+  minerals: number
+  modalOpen: boolean
+  gas: number
+  workerAmount: number
+  purchases: Record<string, PricedItem>
 }
 
 const initialStore: GlobalState = {
   attackListOpen: true,
   defendListOpen: false,
+  race: Race.zerg,
+  initialMinerals: 0,
+  initialGas: 0,
+  minerals: 6,
+  gas: 3,
+  workerAmount: 10,
+  modalOpen: false,
+  filter: null,
+  purchases: {},
 }
 
 const reducer = createReducer<GlobalState, RootAction>(initialStore)
@@ -40,5 +59,21 @@ const reducer = createReducer<GlobalState, RootAction>(initialStore)
     actions.toggleLists,
     (state): GlobalState => ({...state, defendListOpen: !state.defendListOpen, attackListOpen: !state.attackListOpen}),
   )
+  .handleAction(actions.setRace, (state, {payload: race}) => ({...state, race, purchases: {}}))
+  .handleAction(actions.setInitialGas, (state, {payload: initialGas}) => ({...state, initialGas}))
+  .handleAction(actions.setInitialMineral, (state, {payload: initialMinerals}) => ({...state, initialMinerals}))
+  .handleAction(actions.setMinerals, (state, {payload: minerals}) => ({...state, minerals}))
+  .handleAction(actions.setGas, (state, {payload: gas}) => ({...state, gas}))
+  .handleAction(actions.setWorkerAmount, (state, {payload: workerAmount}) => ({...state, workerAmount}))
+  .handleAction(actions.togglePriceModal, (state, {payload: modalOpen}) => ({...state, modalOpen}))
+  .handleAction(actions.setFilter, (state, {payload: filter}) => ({...state, filter}))
+  .handleAction(actions.addPurchase, (state, {payload: item}) => ({
+    ...state,
+    purchases: {...state.purchases, [item.name]: item},
+  }))
+  .handleAction(actions.removePurchase, (state, {payload: itemName}) => ({
+    ...state,
+    purchases: omit(state.purchases, itemName),
+  }))
 
 export default reducer
