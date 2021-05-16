@@ -4,7 +4,7 @@ import {PricedItem, PriceItemType, Race, Unit} from '../../types/models'
 const actions = {
   addPurchase: createAction('ADD_PURCHASE')<PricedItem>(),
   resetPurchases: createAction('RESET_PURCHASES')<undefined>(),
-  removePurchase: createAction('REMOVE_PURCHASE')<PricedItem['name']>(),
+  removePurchase: createAction('REMOVE_PURCHASE')<number>(),
   setAttacker: createAction('SET_ATTACKER')<Unit>(),
   setDefender: createAction('SET_DEFENDER')<Unit>(),
   setFilter: createAction('SET_FILTER')<PriceItemType | null>(),

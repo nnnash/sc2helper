@@ -43,6 +43,7 @@ export const ItemTypeChooser: FC = () => {
 const SliderText = styled.h5`
   color: white;
   font-weight: bold;
+  margin-top: 4px;
   margin-bottom: 2px;
 `
 interface SlidersProps {

@@ -1,5 +1,4 @@
 import {createReducer} from 'typesafe-actions'
-import {omit} from 'lodash'
 
 import {PricedItem, PriceItemType, Race, Unit} from '../../types/models'
 import actions, {RootAction} from '../actions'
@@ -17,7 +16,7 @@ export interface GlobalState {
   modalOpen: boolean
   gas: number
   workerAmount: number
-  purchases: Record<string, PricedItem>
+  purchases: Array<PricedItem>
 }
 
 const initialStore: GlobalState = {
@@ -31,7 +30,7 @@ const initialStore: GlobalState = {
   workerAmount: 10,
   modalOpen: false,
   filter: null,
-  purchases: {},
+  purchases: [],
 }
 
 const reducer = createReducer<GlobalState, RootAction>(initialStore)
@@ -59,7 +58,7 @@ const reducer = createReducer<GlobalState, RootAction>(initialStore)
     actions.toggleLists,
     (state): GlobalState => ({...state, defendListOpen: !state.defendListOpen, attackListOpen: !state.attackListOpen}),
   )
-  .handleAction(actions.setRace, (state, {payload: race}) => ({...state, race, purchases: {}}))
+  .handleAction(actions.setRace, (state, {payload: race}) => ({...state, race, purchases: []}))
   .handleAction(actions.setInitialGas, (state, {payload: initialGas}) => ({...state, initialGas}))
   .handleAction(actions.setInitialMineral, (state, {payload: initialMinerals}) => ({...state, initialMinerals}))
   .handleAction(actions.setMinerals, (state, {payload: minerals}) => ({...state, minerals}))
@@ -69,11 +68,15 @@ const reducer = createReducer<GlobalState, RootAction>(initialStore)
   .handleAction(actions.setFilter, (state, {payload: filter}) => ({...state, filter}))
   .handleAction(actions.addPurchase, (state, {payload: item}) => ({
     ...state,
-    purchases: {...state.purchases, [item.name]: item},
+    purchases: [...state.purchases, item],
   }))
-  .handleAction(actions.removePurchase, (state, {payload: itemName}) => ({
+  .handleAction(actions.removePurchase, (state, {payload: index}) => ({
     ...state,
-    purchases: omit(state.purchases, itemName),
+    purchases: (() => {
+      const arr = [...state.purchases]
+      arr.splice(index, 1)
+      return arr
+    })(),
   }))
 
 export default reducer

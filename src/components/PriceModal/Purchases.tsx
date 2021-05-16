@@ -6,8 +6,11 @@ import {GlobalState} from '../../redux/reducers'
 import actions from '../../redux/actions'
 import {getImgUrl} from '../../utils'
 
+const M_COLOR = '#7c7cd2'
+const G_COLOR = '#37ce37'
+
 const Container = styled.ul`
-  margin-top: 30px;
+  margin-top: 10px;
   color: white;
   list-style: none;
   padding: 0 8px;
@@ -44,6 +47,13 @@ const LeftValue = styled.div<{exceeded: boolean}>`
     color: ${(props) => (props.exceeded ? 'red' : 'inital')};
   }
 `
+const SpentValue = styled.div<{color: string}>`
+  b {
+    font-weight: bold;
+    font-size: 20px;
+    color: ${(props) => props.color};
+  }
+`
 
 const Purchases: FC = () => {
   const dispatch = useDispatch()
@@ -61,20 +71,33 @@ const Purchases: FC = () => {
     }),
     shallowEqual,
   )
-  const {workersLeft, mineralsLeft, gasLeft} = Object.values(purchases).reduce<{
+  const {workersLeft, mineralsLeft, gasLeft, spent} = Object.values(purchases).reduce<{
     gasLeft: number
     mineralsLeft: number
     workersLeft: number
+    initial: [number, number]
+    spent: [number, number]
   }>(
-    (acc, item) => ({
-      gasLeft: acc.gasLeft - item.gas,
-      mineralsLeft: acc.mineralsLeft - item.minerals,
-      workersLeft: acc.workersLeft - item.gas - item.minerals,
-    }),
+    (acc, item) => {
+      const workerSavedM = acc.initial[0] && Math.min(acc.initial[0], item.minerals)
+      const workerSavedG = acc.initial[1] && Math.min(acc.initial[1], item.gas)
+      return {
+        gasLeft: acc.gasLeft - item.gas,
+        mineralsLeft: acc.mineralsLeft - item.minerals,
+        workersLeft: acc.workersLeft - item.gas - item.minerals + workerSavedG + workerSavedM,
+        initial: [
+          acc.initial[0] - Math.min(acc.initial[0], item.minerals),
+          acc.initial[1] - Math.min(acc.initial[1], item.gas),
+        ],
+        spent: [acc.spent[0] + item.minerals, acc.spent[1] + item.gas],
+      }
+    },
     {
       gasLeft: gas + initialGas,
       mineralsLeft: minerals + initialMinerals,
       workersLeft: workerAmount,
+      initial: [initialMinerals, initialGas],
+      spent: [0, 0],
     },
   )
   return (
@@ -88,12 +111,18 @@ const Purchases: FC = () => {
       <LeftValue exceeded={gasLeft < 0}>
         Gas left: <b>{gasLeft}</b>
       </LeftValue>
-      {Object.values(purchases).map((item) => (
-        <li key={`purchase-${item.name}`} onClick={() => dispatch(actions.removePurchase(item.name))}>
+      <SpentValue color={M_COLOR}>
+        Minerals spent: <b>{spent[0]}</b> ({Math.max(spent[0] - initialMinerals, 0)})
+      </SpentValue>
+      <SpentValue color={G_COLOR}>
+        Gas spent: <b>{spent[1]}</b> ({Math.max(spent[1] - initialGas, 0)})
+      </SpentValue>
+      {purchases.map((item, ind) => (
+        <li key={`purchase-${item.name}-${ind}`} onClick={() => dispatch(actions.removePurchase(ind))}>
           <Image alt={item.name} src={getImgUrl(item.img)} />
           <Name>{item.name}</Name>
-          <PriceValue color="#7c7cd2">{item.minerals}</PriceValue>
-          <PriceValue color="#37ce37">{item.gas}</PriceValue>
+          <PriceValue color={M_COLOR}>{item.minerals}</PriceValue>
+          <PriceValue color={G_COLOR}>{item.gas}</PriceValue>
         </li>
       ))}
     </Container>
