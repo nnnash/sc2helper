@@ -46,9 +46,11 @@ export interface RawUnit {
   tech4?: string
   melee?: number
   attLimit?: string
-  img?: string
   support2?: number
   feature?: string
+  mutationfrom?: string
+  mutationprerequisites?: string
+  specialattributes?: string
 }
 
 export interface RawBuilding {
@@ -64,6 +66,11 @@ export interface RawTech {
   name: string
   m: number
   vg: number
+  description?: string
+  battle?: string
+  att?: string
+  def?: string
+  bonus?: string
 }
 
 export interface Raw extends Record<Race, Array<RawUnit>> {

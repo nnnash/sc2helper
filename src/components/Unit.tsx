@@ -9,8 +9,8 @@ import actions from '../redux/actions'
 import {AttDefValue, useAttDef} from '../context'
 import {BOTTOM_WIDTH, MOBILE_WIDTH, TOP_WIDTH} from '../constants'
 import {GlobalState} from '../redux/reducers'
-import infestor from '../img/infestor.png'
 import UnitTitle from './UnitTitle'
+import {getUnitImage} from './UnitImage'
 
 const container = css`
   position: relative;
@@ -69,7 +69,7 @@ const Unit = ({unit, isClickable}: UnitProps) => {
       }}
     >
       <UnitTitle>{unit.name}</UnitTitle>
-      <Img isBig={!isClickable} src={unit?.img === 'infestor' ? infestor : unit.img} alt="no image" />
+      <Img isBig={!isClickable} src={getUnitImage(unit.name)} alt="no image" />
     </div>
   )
 }

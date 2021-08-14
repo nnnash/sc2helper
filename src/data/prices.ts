@@ -1,20 +1,16 @@
 import {PricedItem, PriceItemType, Race} from '../types/models'
 import d from './data.json'
 import {Raw} from '../types/raw'
-
-const RACE_ABBR: Record<string, Race> = {
-  t: Race.terran,
-  p: Race.protoss,
-  z: Race.zerg,
-}
+import {getUnitImage} from '../components/UnitImage'
+import {RACE_ABBR} from './race'
 
 const getPrices = (race: Race): Array<PricedItem> => {
   const data = d as Raw
-  const units: Array<PricedItem> = data[race].map(({name, m, vg, img = ''}) => ({
+  const units: Array<PricedItem> = data[race].map(({name, m, vg}) => ({
     name,
     gas: vg,
     minerals: m,
-    img,
+    img: getUnitImage(name),
     type: PriceItemType.unit,
   }))
   const buildings = data.buildings.reduce<Array<PricedItem>>((acc, item) => {

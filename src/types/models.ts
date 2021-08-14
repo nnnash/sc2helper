@@ -71,9 +71,11 @@ export interface Unit {
   tech2?: string
   tech3?: string
   tech4?: string
-  img?: string
   feature?: string
   support2?: boolean
+  mutationFrom?: Array<string>
+  mutationPrerequisites?: string
+  specialAttributes?: Array<string>
 }
 
 export interface AttributeInfo {
@@ -101,4 +103,26 @@ export interface PricedItem {
   minerals: number
   gas: number
   type: PriceItemType
+}
+
+export interface TBuilding {
+  name: string
+  abbr: string
+  race: Race
+  minerals: number
+  gas: number
+  img: string
+  level: number
+}
+
+export interface TTech {
+  name: string
+  description: string
+  race: Race
+  units: Array<string>
+  minerals: number
+  gas: number
+  assistCard: boolean
+  cardValues?: Array<[number, number]>
+  cardBonus?: Bonus
 }

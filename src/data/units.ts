@@ -7,6 +7,7 @@ import {
   BonusAttributeLimitation,
   CardBonusValue,
   OtherBonusValue,
+  Race,
   Unit,
   UnitCard,
   UnitDescriptions,
@@ -33,7 +34,7 @@ const DESCRIPTION: {[key: string]: UnitDescriptions} = {
   mel: UnitDescriptions.melee,
   ass: UnitDescriptions.assist,
 }
-const BONUS: {[key: string]: Bonus} = {
+export const BONUS: {[key: string]: Bonus} = {
   sp: Bonus.speed,
   r: Bonus.range,
   c: Bonus.cloak,
@@ -104,7 +105,7 @@ const mapRaw = (rawData: Array<RawUnit>) =>
       type: getUnitType(item),
       description: !item.a1 ? UnitDescriptions.assist : item.melee ? UnitDescriptions.melee : undefined,
       attackLimit: item.attLimit ? (item.attLimit === 'a' ? UnitType.air : UnitType.ground) : undefined,
-      minerals: 3,
+      minerals: item.m,
       gas: item.vg,
       build: item.build,
       attributes: getAttributes(item.attr),
@@ -112,10 +113,24 @@ const mapRaw = (rawData: Array<RawUnit>) =>
       attackBonus: (item.commBa && getBonuses(item.commBa)) as Unit['attackBonus'],
       otherBonus: (item.commBo && getOtherBonuses(item.commBo)) as Unit['otherBonus'],
       support2: !!item.support2,
-      ...pick(item, 'tech1', 'tech2', 'tech3', 'tech4', 'img', 'feature'),
+      mutationPrerequisites: item.mutationprerequisites,
+      specialAttributes: item.specialattributes ? item.specialattributes.split(',') : undefined,
+      mutationFrom: item.mutationfrom?.split(','),
+      ...pick(item, 'tech1', 'tech2', 'tech3', 'tech4', 'feature'),
     }),
   )
 
 export const PROTOSS_DATA = mapRaw(protoss)
 export const ZERG_DATA = mapRaw(zerg)
 export const TERRAN_DATA = mapRaw(terran)
+
+export const getDataByRace = (race: Race) => {
+  switch (race) {
+    case Race.zerg:
+      return ZERG_DATA
+    case Race.protoss:
+      return PROTOSS_DATA
+    default:
+      return TERRAN_DATA
+  }
+}

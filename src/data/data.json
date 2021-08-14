@@ -24,8 +24,7 @@
       "c5": "5/6",
       "tech1": "Charge",
       "melee": 1,
-      "attLimit": "g",
-      "img": "http://www.teamliquid.net/staff/monk/Coopguides/Artanis/Zealot.png"
+      "attLimit": "g"
     },
     {
       "name": "Sentry",
@@ -48,8 +47,7 @@
       "c4": "4/5",
       "tech1": "Force field",
       "tech2": "Guardian shield",
-      "tech3": "Hallucination",
-      "img": "http://www.teamliquid.net/staff/monk/Coopguides/Karax/Energizer.png"
+      "tech3": "Hallucination"
     },
     {
       "name": "Adept",
@@ -73,8 +71,7 @@
       "commBa": "1 l",
       "tech1": "Resonating glaives",
       "attLimit": "g",
-      "feature": "Plays two cards then selects one after opponent reveals his cards in this skirmish",
-      "img": "http://www.teamliquid.net/staff/Chimaron/Guides/Fenix/Adept.png"
+      "feature": "Places two battle cards, then decides which one to use after opponent's card is revealed"
     },
     {
       "name": "Stalker",
@@ -96,8 +93,7 @@
       "c3": "6/7",
       "c4": "7/6",
       "commBa": "1 a",
-      "tech1": "Blink",
-      "img": "http://www.teamliquid.net/staff/monk/Coopguides/Vorazun/Stalker.png"
+      "tech1": "Blink"
     },
     {
       "name": "High templar",
@@ -108,8 +104,7 @@
       "attr": "l,b,p",
       "tech1": "Psi storm",
       "tech2": "Feedback",
-      "attLimit": "g",
-      "img": "http://www.teamliquid.net/staff/monk/Coopguides/Artanis/High_Templar.png"
+      "attLimit": "g"
     },
     {
       "name": "Dark templar",
@@ -133,8 +128,7 @@
       "commBo": "c",
       "tech1": "Blink",
       "melee": 1,
-      "attLimit": "g",
-      "img": "http://www.teamliquid.net/staff/monk/Coopguides/Vorazun/Dark_Templar.png"
+      "attLimit": "g"
     },
     {
       "name": "Archon",
@@ -162,7 +156,7 @@
       "commBo": "s mel",
       "melee": 1,
       "support2": 1,
-      "img": "http://www.teamliquid.net/staff/monk/Coopguides/Artanis/Archon.png"
+      "mutationfrom": "High templar,Dark templar"
     },
     {
       "name": "Immortal",
@@ -184,8 +178,7 @@
       "c3": "7/7",
       "c4": "6/8",
       "commBa": "2 a",
-      "attLimit": "g",
-      "img": "http://www.teamliquid.net/staff/monk/Coopguides/Artanis/Immortal.png"
+      "attLimit": "g"
     },
     {
       "name": "Disruptor",
@@ -208,8 +201,7 @@
       "c4": "7/4",
       "bo4": "s l",
       "commBo": "r",
-      "attLimit": "g",
-      "img": "https://www.teamliquid.net/staff/Chimaron/Guides/Fenix/Disruptor.png"
+      "attLimit": "g"
     },
     {
       "name": "Colossus",
@@ -237,8 +229,7 @@
       "bo4": "s l",
       "tech1": "Extended thermal lance",
       "attLimit": "g",
-      "feature": "Ground unit, but air units with ability to attack air units attack him as an air unit.",
-      "img": "https://pngimg.com/uploads/starcraft/starcraft_PNG13.png"
+      "feature": "Can be attacked both as ground and air unit. If opponent can attack both type of units then it has to attack according to its own type (Thor attacks with ground weapon, battlecruiser with air)"
     },
     {
       "name": "Phoenix",
@@ -261,8 +252,7 @@
       "c4": "5/7",
       "commBa": "1 l",
       "attLimit": "a",
-      "feature": "If phoenix can not attack anyone in the skirmish (because all of them are ground units) then he blocks attack of one non massive support unit (front-line unit if no support)",
-      "img": "http://www.teamliquid.net/staff/monk/Coopguides/Artanis/Pheonix.png"
+      "feature": "If phoenix can not attack anyone in the skirmish (because all of them are ground units) then he blocks attack of one non massive support unit (front-line unit if no support)"
     },
     {
       "name": "Void ray",
@@ -284,8 +274,7 @@
       "c3": "6/7",
       "c4": "7/7",
       "tech1": "Prismatic alignment",
-      "tech2": "Flux vanes",
-      "img": "http://www.teamliquid.net/staff/monk/Coopguides/Vorazun/Void_Ray.png"
+      "tech2": "Flux vanes"
     },
     {
       "name": "Oracle",
@@ -296,8 +285,7 @@
       "attr": "a,m,p",
       "tech1": "Activate Pulsar beam",
       "tech2": "Revelation",
-      "tech3": "Stasis ward",
-      "img": "http://www.teamliquid.net/staff/monk/Coopguides/Vorazun/Oracle.png"
+      "tech3": "Stasis ward"
     },
     {
       "name": "Tempest",
@@ -322,8 +310,7 @@
       "ba3": "1 gr / 2 fl ms",
       "c4": "8/7",
       "ba4": "1 fl ms",
-      "commBo": "r",
-      "img": "https://i.pinimg.com/originals/49/0d/3a/490d3aaecba81be3b2b330978fbc931a.png"
+      "commBo": "r"
     },
     {
       "name": "Carrier",
@@ -345,8 +332,7 @@
       "c3": "9/8",
       "c4": "8/8",
       "commBo": "r",
-      "support2": 1,
-      "img": "http://www.teamliquid.net/staff/monk/Coopguides/Karax/Carrier.png"
+      "support2": 1
     },
     {
       "name": "Mothership",
@@ -369,8 +355,7 @@
       "c4": "8/9",
       "attLimit": "g",
       "support2": 1,
-      "feature": "Mothership gives cloak to every own unit in the batlle but not himself",
-      "img": "https://i.pinimg.com/originals/d7/34/03/d734037d264947baff2478225fa0f2e4.png"
+      "feature": "Cloaks every unit in the battle but not himself. Can call units from any area on any planet to the are Mothership is on in the end of the regrouping phase."
     }
   ],
   "zerg": [
@@ -399,8 +384,7 @@
       "tech1": "Metabolic boost",
       "tech2": "Burrow",
       "melee": 1,
-      "attLimit": "g",
-      "img": "http://www.teamliquid.net/staff/monk/Kerrigancoop/TransparentSized/Zergling.png"
+      "attLimit": "g"
     },
     {
       "name": "Baneling",
@@ -425,8 +409,10 @@
       "tech1": "Centrifugal hooks",
       "melee": 1,
       "attLimit": "g",
-      "feature": "Dies after every battle",
-      "img": "https://play-lh.googleusercontent.com/f0sDXamzvbVAW6r9uSrXiIfxbq9BaRx2bptFRMLWDXkxs39ixOzkvvLAl0QBLrs5TA"
+      "specialattributes": "0 supp,sacr",
+      "mutationfrom": "Zergling",
+      "mutationprerequisites": "tech",
+      "feature": "Dies after every battle"
     },
     {
       "name": "Roach",
@@ -448,8 +434,7 @@
       "c3": "5/6",
       "c4": "5/5",
       "tech1": "Burrow",
-      "attLimit": "g",
-      "img": "https://tl.net/staff/Chimaron/Guides/Abathur/Roach.png"
+      "attLimit": "g"
     },
     {
       "name": "Ravager",
@@ -470,7 +455,7 @@
       "c2": "5/6",
       "c3": "6/6",
       "c4": "7/6",
-      "img": "https://tl.net/staff/Chimaron/Guides/Abathur/Ravager.png"
+      "mutationfrom": "Roach"
     },
     {
       "name": "Hydralisk",
@@ -491,8 +476,7 @@
       "c2": "7/6",
       "c3": "6/6",
       "c4": "6/5",
-      "tech1": "Burrow",
-      "img": "http://www.teamliquid.net/staff/monk/Kerrigancoop/TransparentSized/Hydralisk.png"
+      "tech1": "Burrow"
     },
     {
       "name": "Lurker",
@@ -519,7 +503,8 @@
       "commBo": "c / ls",
       "tech1": "Seismic Spines",
       "attLimit": "g",
-      "img": "http://www.teamliquid.net/staff/monk/Kerrigancoop/TransparentSized/Lurker.png"
+      "mutationfrom": "Hydralisk",
+      "mutationprerequisites": "tech"
     },
     {
       "name": "Swarm host",
@@ -541,8 +526,7 @@
       "c3": "6/6",
       "c4": "7/6",
       "commBo": "c / r",
-      "attLimit": "g",
-      "img": "https://tl.net/staff/Chimaron/Guides/Abathur/Swarm_Host.png"
+      "attLimit": "g"
     },
     {
       "name": "Infestor",
@@ -554,8 +538,7 @@
       "commBo": "c",
       "tech1": "Neural parasite",
       "tech2": "Fungal growth",
-      "tech3": "Microbial shroud",
-      "img": "infestor"
+      "tech3": "Microbial shroud"
     },
     {
       "name": "Ultralisk",
@@ -580,8 +563,7 @@
       "tech1": "Anabolic synthesis",
       "melee": 1,
       "attLimit": "g",
-      "support2": 1,
-      "img": "http://www.teamliquid.net/staff/monk/Kerrigancoop/TransparentSized/Ultralisk.png"
+      "support2": 1
     },
     {
       "name": "Mutalisk",
@@ -602,8 +584,7 @@
       "c2": "7/6",
       "c3": "6/7",
       "c4": "5/7",
-      "commBo": "sp / s l",
-      "img": "https://tl.net/staff/Chimaron/Guides/Abathur/Mutalisk.png"
+      "commBo": "sp / s l"
     },
     {
       "name": "Corruptor",
@@ -628,8 +609,7 @@
       "c4": "8/8",
       "ba4": "1 a",
       "commBo": "sp",
-      "attLimit": "a",
-      "img": "http://www.teamliquid.net/staff/monk/Coopguides/Zagara/Corruptor.png"
+      "attLimit": "a"
     },
     {
       "name": "Brood lord",
@@ -653,7 +633,8 @@
       "commBo": "r",
       "attLimit": "g",
       "support2": 1,
-      "img": "http://www.teamliquid.net/staff/monk/Kerrigancoop/TransparentSized/Brood_Lord.png"
+      "mutationfrom": "Corruptor",
+      "mutationprerequisites": "spire lvl 2"
     },
     {
       "name": "Viper",
@@ -664,8 +645,7 @@
       "attr": "b,p,a",
       "tech1": "Abduct",
       "tech2": "Blinding cloud",
-      "tech3": "Parasitic bomb",
-      "img": "https://tl.net/staff/Chimaron/Guides/Abathur/Viper.png"
+      "tech3": "Parasitic bomb"
     },
     {
       "name": "Queen",
@@ -688,8 +668,7 @@
       "c3": "5/6",
       "c4": "5/5",
       "ba4": "1 fl",
-      "feature": "Can only stay in the area with a base",
-      "img": "http://www.teamliquid.net/staff/monk/Coopguides/Zagara/Queen.png"
+      "feature": "Can only stay in the area with a base"
     }
   ],
   "terran": [
@@ -715,7 +694,8 @@
       "c3": "6/4",
       "c4": "6/5",
       "c5": "5/6",
-      "img": "https://tl.net/staff/monk/Coopguides/Raynor/Marine2.png"
+      "tech1": "Stim packs",
+      "tech2": "Bunker"
     },
     {
       "name": "Reaper",
@@ -737,8 +717,8 @@
       "c3": "6/4",
       "c4": "6/5",
       "commBo": "sp",
-      "attLimit": "g",
-      "img": "https://pngimg.com/uploads/starcraft/starcraft_PNG32.png"
+      "tech1": "Bunker",
+      "attLimit": "g"
     },
     {
       "name": "Marauder",
@@ -760,8 +740,10 @@
       "c3": "6/5",
       "c4": "6/6",
       "commBa": "2 a",
-      "attLimit": "g",
-      "img": "https://tl.net/staff/monk/Coopguides/Raynor/Marauder.png"
+      "tech1": "Concussive shells",
+      "tech2": "Stim packs",
+      "tech3": "Bunker",
+      "attLimit": "g"
     },
     {
       "name": "Ghost",
@@ -783,7 +765,10 @@
       "c3": "6/4",
       "c4": "6/5",
       "commBa": "1 b",
-      "img": "https://u.kanobu.ru/longreads/2016/11/27/1a78ed5e-a2dd-4e37-adf0-475c953c79bc.png"
+      "tech1": "Nuke",
+      "tech2": "Cloak",
+      "tech3": "EMP round",
+      "tech4": "Bunker"
     },
     {
       "name": "Hellion",
@@ -811,8 +796,8 @@
       "c4": "7/6",
       "bo4": "s l",
       "commBo": "sp",
-      "attLimit": "g",
-      "img": "http://www.teamliquid.net/staff/monk/Coopguides/Swann/Helion.png"
+      "tech1": "Infernal Pre-igniter",
+      "attLimit": "g"
     },
     {
       "name": "Widow mine",
@@ -834,8 +819,7 @@
       "c3": "6/4",
       "bd3": "2 df",
       "c4": "7/3",
-      "bd4": "2 df",
-      "img": "http://www.teamliquid.net/staff/Chimaron/Guides/HanHorner/Widow_Mine.png"
+      "bd4": "2 df"
     },
     {
       "name": "Cyclone",
@@ -856,8 +840,7 @@
       "c2": "6/7",
       "c3": "6/6",
       "c4": "7/7",
-      "commBo": "r",
-      "img": "http://www.teamliquid.net/staff/monk/Coopguides/Swann/Cyclone.png"
+      "commBo": "r"
     },
     {
       "name": "Siege tank",
@@ -883,8 +866,7 @@
       "bd4": "1 gr !mel",
       "bo4": "s / r",
       "commBa": "1 a",
-      "attLimit": "g",
-      "img": "https://tl.net/staff/monk/Coopguides/Raynor/Tank.png"
+      "attLimit": "g"
     },
     {
       "name": "Thor",
@@ -914,8 +896,7 @@
       "bd4": "1 fl",
       "commBa": "1 gr",
       "commBo": "r fl",
-      "support2": 1,
-      "img": "http://www.teamliquid.net/staff/monk/Coopguides/Swann/Thor.png"
+      "support2": 1
     },
     {
       "name": "Viking",
@@ -941,8 +922,7 @@
       "c4": "7/5",
       "commBa": "1 gr",
       "commBo": "r fl",
-      "feature": "Viking changes his type between air & ground based on what type the opponent front line unit is",
-      "img": "https://tl.net/staff/monk/Coopguides/Raynor/Viking.png"
+      "feature": "Viking changes his type between air & ground based on what type the opponent front line unit is"
     },
     {
       "name": "Liberator",
@@ -963,8 +943,7 @@
       "c2": "7/6",
       "c3": "5/7",
       "c4": "5/8",
-      "commBo": "r gr",
-      "img": "https://tl.net/staff/Chimaron/Guides/Nova/Liberator.png"
+      "commBo": "r gr"
     },
     {
       "name": "Raven",
@@ -973,7 +952,9 @@
       "pr": 3,
       "build": "s2",
       "attr": "l,m",
-      "img": "http://www.teamliquid.net/staff/Chimaron/Guides/Nova/Raven.png"
+      "tech1": "Build auto-turret",
+      "tech2": "Interference matrix",
+      "tech3": "Anti-armor missile"
     },
     {
       "name": "Banshee",
@@ -994,8 +975,9 @@
       "c2": "6/6",
       "c3": "7/5",
       "c4": "7/6",
-      "attLimit": "g",
-      "img": "https://tl.net/staff/monk/Coopguides/Raynor/Banshee.png"
+      "tech1": "Cloak",
+      "tech2": "Hyperflight rotors",
+      "attLimit": "g"
     },
     {
       "name": "Battlecruiser",
@@ -1020,8 +1002,9 @@
       "ba3": "1 gr",
       "c4": "11/10",
       "ba4": "1 gr",
-      "support2": 1,
-      "img": "https://tl.net/staff/monk/Coopguides/Raynor/Battlecruiser.png"
+      "tech1": "Yamato gun",
+      "tech2": "Tactical jump",
+      "support2": 1
     }
   ],
   "buildings": [
@@ -1346,289 +1329,368 @@
       "race": "p",
       "name": "Charge",
       "m": 1,
-      "vg": 1
+      "vg": 1,
+      "description": "Gets {sp}"
     },
     {
       "race": "p",
       "name": "Force field",
       "m": 2,
-      "vg": 2
+      "vg": 2,
+      "description": "Blocks all melee units attack and support in skirmish",
+      "battle": "y"
     },
     {
       "race": "p",
       "name": "Guardian shield",
       "m": 1,
-      "vg": 2
+      "vg": 2,
+      "description": "Provides +1 health vs non melee units in every skirmish with sentry"
     },
     {
       "race": "p",
       "name": "Hallucination",
       "m": 1,
-      "vg": 3
+      "vg": 3,
+      "description": "Makes enemy play other card in the skirmish (from hand or deck)",
+      "battle": "y"
     },
     {
       "race": "p",
       "name": "Blink",
       "m": 1,
-      "vg": 2
+      "vg": 2,
+      "description": "gets {sp} and skirmish switch"
     },
     {
       "race": "p",
       "name": "Resonating glaives",
       "m": 0,
-      "vg": 2
+      "vg": 2,
+      "description": " +1 attack"
     },
     {
       "race": "p",
       "name": "Psi storm",
       "m": 2,
-      "vg": 3
+      "vg": 3,
+      "description": " +2 attack (+3 if attacking) & splash vs light units",
+      "battle": "y"
     },
     {
       "race": "p",
       "name": "Feedback",
       "m": 1,
-      "vg": 2
+      "vg": 2,
+      "description": "Cancels opponent's tech card & +1 attack vs psi units",
+      "battle": "y"
     },
     {
       "race": "p",
       "name": "Extended thermal lance",
       "m": 1,
-      "vg": 1
+      "vg": 1,
+      "description": "Gets {r}"
     },
     {
       "race": "p",
       "name": "Activate Pulsar beam",
       "m": 1,
-      "vg": 3
+      "vg": 3,
+      "description": " +1 attack (+1 more vs light units). If Oracle is front line unit +1 attack more",
+      "battle": "y"
     },
     {
       "race": "p",
       "name": "Revelation",
       "m": 0,
-      "vg": 3
+      "vg": 3,
+      "description": "Opponent plays cards open in skirmish, detector in the battle",
+      "battle": "y"
     },
     {
       "race": "p",
       "name": "Stasis ward",
       "m": 1,
-      "vg": 2
+      "vg": 2,
+      "description": "Both your and your opponent's attack values are 0",
+      "battle": "y"
     },
     {
       "race": "p",
       "name": "Prismatic alignment",
       "m": 0,
-      "vg": 2
+      "vg": 2,
+      "description": " +1 attack vs armored unit",
+      "battle": "y"
     },
     {
       "race": "p",
       "name": "Flux vanes",
       "m": 1,
-      "vg": 1
+      "vg": 1,
+      "description": "Gets {sp}"
     },
     {
       "race": "p",
       "name": "Shield battery",
       "m": 2,
-      "vg": 0
+      "vg": 0,
+      "description": "If you have a base in the area of the battle, gain +2 health",
+      "battle": "y"
     },
     {
       "race": "p",
       "name": "Observer",
       "m": 0,
-      "vg": 2
+      "vg": 2,
+      "description": "At the start of the battle you may pay any 1 resource to gain detector in the battle"
     },
     {
       "race": "p",
       "name": "Phasing mode",
       "m": 3,
-      "vg": 3
+      "vg": 3,
+      "description": "You may build gateway units both on active planet and any planet with transport"
     },
     {
       "race": "z",
       "name": "Metabolic boost",
       "m": 0,
-      "vg": 2
+      "vg": 2,
+      "description": "Gets {sp}"
     },
     {
       "race": "z",
       "name": "Burrow",
       "m": 0,
-      "vg": 2
+      "vg": 2,
+      "att": "0;0",
+      "def": "6;7",
+      "bonus": "c"
     },
     {
       "race": "z",
       "name": "Centrifugal hooks",
       "m": 0,
-      "vg": 1
+      "vg": 1,
+      "description": "Gets {sp}"
     },
     {
       "race": "z",
       "name": "Baneling nest",
       "m": 0,
-      "vg": 2
+      "vg": 2,
+      "description": "Allows to morph Zergling to Baneling"
     },
     {
       "race": "z",
       "name": "Lurker den",
       "m": 1,
-      "vg": 1
+      "vg": 1,
+      "description": "Allows to morph Hydralisk to Lurker"
     },
     {
       "race": "z",
       "name": "Neural parasite",
       "m": 2,
-      "vg": 3
+      "vg": 3,
+      "description": "Sort of Mind control. If both infestor and opponent survives and opponent is not cloaked it becomes controlled by inifestor. It should never leave the area without this infestor, otherwise it regains self control. 2 cards. can only control up to 2 units. Uses main player's top card.",
+      "battle": "y"
     },
     {
       "race": "z",
       "name": "Fungal growth",
       "m": 0,
-      "vg": 2
+      "vg": 2,
+      "description": "Infestor gives non melee front-line unit in its skirmish {r} & +1 attack in each skirmish.",
+      "battle": "y"
     },
     {
       "race": "z",
       "name": "Microbial shroud",
       "m": 1,
-      "vg": 2
+      "vg": 2,
+      "description": "Infestor gives +2 health vs flying unit.",
+      "battle": "y"
     },
     {
       "race": "z",
       "name": "Anabolic synthesis",
       "m": 1,
-      "vg": 1
+      "vg": 1,
+      "description": "Gets {sp}"
     },
     {
       "race": "z",
       "name": "Abduct",
       "m": 2,
-      "vg": 2
+      "vg": 2,
+      "description": " +1 attack (and +1 more for each support non assist unit in battle).",
+      "battle": "y"
     },
     {
       "race": "z",
       "name": "Blinding cloud",
       "m": 0,
-      "vg": 2
+      "vg": 2,
+      "description": "Turns opponent front-line unit in the skirmish into melee"
     },
     {
       "race": "z",
       "name": "Parasitic bomb",
       "m": 2,
-      "vg": 2
+      "vg": 2,
+      "description": " +1 attack and linear splash in skirmish"
     },
     {
       "race": "z",
       "name": "Spine crawler",
       "m": 2,
-      "vg": 0
+      "vg": 0,
+      "description": "If you have a base in the area of the battle, gain +2 attack vs a ground unit",
+      "battle": "y"
     },
     {
       "race": "z",
       "name": "Morph to overseer",
       "m": 1,
-      "vg": 3
+      "vg": 3,
+      "description": "Every your transport gives detection to every battle on the planet it connects."
     },
     {
       "race": "z",
       "name": "Improved carapace",
       "m": 2,
-      "vg": 2
+      "vg": 2,
+      "description": " +1 health",
+      "battle": "y"
     },
     {
       "race": "z",
       "name": "Seismic Spines",
       "m": 0,
-      "vg": 2
+      "vg": 2,
+      "description": "gets {r}"
     },
     {
       "race": "z",
       "name": "Nydus network",
       "m": 2,
-      "vg": 4
+      "vg": 4,
+      "description": "Allows to build nydus worm on any empty or friendly area on any planet to be able to build new units in this area instead of (in addition to) active planet. To build Nydus worm just place its token on any planet without one already while doing build order on any planet. "
     },
     {
       "race": "t",
       "name": "Stim packs",
       "m": 2,
-      "vg": 2
+      "vg": 2,
+      "att": "7;7",
+      "def": "3;4"
     },
     {
       "race": "t",
       "name": "Concussive shells",
       "m": 2,
-      "vg": 2
+      "vg": 2,
+      "description": " +2 health vs non massive units",
+      "battle": "y"
     },
     {
       "race": "t",
       "name": "Nuke",
       "m": 1,
-      "vg": 4
+      "vg": 4,
+      "description": "End of the Destroy unit step: if your front-line ghost isn't destroyed, then opponent's front line unit is destroyed. Besides that all other opponent's untis in the battle that cost less than 5 resources are destroyed",
+      "att": 0,
+      "def": "6"
     },
     {
       "race": "t",
       "name": "Cloak",
       "m": 1,
-      "vg": 3
+      "vg": 3,
+      "description": "gets {c}",
+      "battle": "y"
     },
     {
       "race": "t",
       "name": "EMP round",
       "m": 0,
-      "vg": 3
+      "vg": 3,
+      "description": "Gain +2 attack vs protoss, +1 vs psi units and Raven (resulting +3 vs psi protoss)",
+      "battle": "y"
     },
     {
       "race": "t",
       "name": "Infernal Pre-igniter",
       "m": 1,
-      "vg": 2
+      "vg": 2,
+      "description": " +1 attack",
+      "battle": "y"
     },
     {
       "race": "t",
       "name": "Hyperflight rotors",
       "m": 0,
-      "vg": 2
+      "vg": 2,
+      "description": "Gets {sp}"
     },
     {
       "race": "t",
       "name": "Build auto-turret",
       "m": 0,
-      "vg": 2
+      "vg": 2,
+      "description": " +1 attack",
+      "battle": "y"
     },
     {
       "race": "t",
       "name": "Interference matrix",
       "m": 1,
-      "vg": 3
+      "vg": 3,
+      "description": "Cancel support and tech cards in the skirmish",
+      "battle": "y"
     },
     {
       "race": "t",
       "name": "Anti-armor missile",
       "m": 1,
-      "vg": 3
+      "vg": 3,
+      "description": " +1 health (and +1 attack vs armored unit)",
+      "battle": "y"
     },
     {
       "race": "t",
       "name": "Yamato gun",
       "m": 2,
-      "vg": 2
+      "vg": 2,
+      "att": "12;12",
+      "def": "10;9",
+      "bonus": "r"
     },
     {
       "race": "t",
       "name": "Tactical jump",
       "m": 2,
-      "vg": 3
+      "vg": 3,
+      "description": "Battlecruiser can jump to any free/friendly area of any planet in the end of the regroup phase"
     },
     {
       "race": "t",
       "name": "Bunker",
       "m": 2,
-      "vg": 0
+      "vg": 0,
+      "description": "If you have a base in the area of the battle, gain +3 health",
+      "battle": "y"
     },
     {
       "race": "t",
       "name": "Medivac",
       "m": 1,
-      "vg": 3
+      "vg": 3,
+      "description": "Each transport connecting the planet where the battle occurs gives bio unit +1 health",
+      "battle": "y"
     }
   ]
 }

@@ -2,15 +2,15 @@ import React from 'react'
 import {shallowEqual, useSelector, useDispatch} from 'react-redux'
 import {styled} from '@linaria/react'
 
-import {Attribute, AttributeInfo, Unit as TUnit, UnitDescriptions, UnitType} from '../types/models'
 import {GlobalState} from '../redux/reducers'
 import Unit from './Unit'
 import Icon, {ComplexIcon, ValuedBonusIcons} from './Icon'
-import {ATTACK_LIMIT, ATTRIBUTES, BONUS, UNIT_DESCRIPTION, UNIT_TYPE} from '../models/attributes'
+import {BONUS} from '../models/attributes'
 import UnitCards from './UnitCards'
 import {AttDefValue, useAttDef} from '../context'
 import actions from '../redux/actions'
 import {MIDDLE_WIDTH, MOBILE_WIDTH} from '../constants'
+import {getAttributeInfo, getIcons} from '../utils'
 
 const Title = styled.h2<{isDefender?: boolean}>`
   color: ${(props) => (props.isDefender ? '#126312' : '#8e2929')};
@@ -59,17 +59,6 @@ const FeatureText = styled.p`
   font-size: 14px;
   color: #031e3a;
 `
-
-const getAttributeInfo = (name: Attribute | UnitType | UnitDescriptions): AttributeInfo =>
-  UNIT_TYPE[name as UnitType] || ATTRIBUTES[name as Attribute] || UNIT_DESCRIPTION[name as UnitDescriptions]
-
-const getIcons = (unit: TUnit) => [
-  UNIT_TYPE[unit.type],
-  ...unit.attributes.map((attr) => ATTRIBUTES[attr]),
-  ...(unit.description ? [UNIT_DESCRIPTION[unit.description]] : []),
-  ...(unit.attackLimit ? [ATTACK_LIMIT[unit.attackLimit]] : []),
-  ...(unit.support2 ? [BONUS.support] : []),
-]
 
 const UnitDescription = () => {
   const isDefender = useAttDef() === AttDefValue.defend

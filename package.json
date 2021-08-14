@@ -24,6 +24,7 @@
     "classnames": "^2.2.6",
     "eslint-config-prettier": "7.2.0",
     "eslint-plugin-prettier": "3.3.1",
+    "html-to-image": "^1.7.0",
     "lodash": "^4.17.20",
     "prettier": "2.2.1",
     "rc-slider": "^9.7.2",
@@ -40,6 +41,7 @@
   },
   "scripts": {
     "start": "react-app-rewired start",
+    "start:img": "REACT_APP_TABLETOP_IMG=true npm start",
     "build": "react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject"

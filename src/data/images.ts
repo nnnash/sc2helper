@@ -16,7 +16,6 @@ import InfestationPit from '../img/infestationPit.png'
 import Overlord from '../img/overlord.png'
 import Scv from '../img/scv.png'
 import Factory from '../img/factory.png'
-import Infestor from '../img/infestor.png'
 import Planetary from '../img/planetary.png'
 import Tech from '../img/tech.png'
 import Cannon from '../img/cannon.png'
@@ -38,6 +37,7 @@ import Pylon from '../img/pylon.png'
 import Starport from '../img/starport.png'
 import Spore from '../img/spore.png'
 import Twilight from '../img/twilight.png'
+import SpawningPool from '../img/spawningPool.png'
 
 export const images = {
   egg: Egg,
@@ -58,7 +58,6 @@ export const images = {
   overlord: Overlord,
   scv: Scv,
   factory: Factory,
-  infestor: Infestor,
   planetary: Planetary,
   tech: Tech,
   cannon: Cannon,
@@ -80,4 +79,5 @@ export const images = {
   pylon: Pylon,
   starport: Starport,
   twilight: Twilight,
+  spawningPool: SpawningPool,
 }
