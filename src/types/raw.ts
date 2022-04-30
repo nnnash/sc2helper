@@ -59,6 +59,7 @@ export interface RawBuilding {
   m: number
   vg: number
   img: string
+  baseimprovement?: string
 }
 
 export interface RawTech {
@@ -71,9 +72,47 @@ export interface RawTech {
   att?: string
   def?: string
   bonus?: string
+  smatt?: string
+  smdef?: string
+}
+
+export interface AttributeDescription {
+  name?: string
+  descr?: string
+  abbr?: string
+}
+
+export interface RawBattleCard {
+  race: string
+  units?: string
+  attack?: number
+  health?: number
+  text?: string
+  smattack?: number
+  smhealth?: number
+  assist?: boolean
+  attr?: string
+}
+
+export interface EventCard {
+  stage: 1 | 2 | 3
+  name: string
+  amount?: number
+  text: string
+  strategy?: boolean
+  start?: string
+  end?: string
+  playarea?: boolean
+  alternative?: string
+  t?: string
+  z?: string
+  p?: string
 }
 
 export interface Raw extends Record<Race, Array<RawUnit>> {
   buildings: Array<RawBuilding>
   techs: Array<RawTech>
+  attributes: Array<AttributeDescription>
+  cards: Array<RawBattleCard>
+  events: Array<EventCard>
 }

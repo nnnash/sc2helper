@@ -17,7 +17,7 @@ import data from './data.json'
 
 const {protoss, terran, zerg} = data
 
-const ATTR: {[key: string]: Attribute} = {
+export const ATTR: {[key: string]: Attribute} = {
   l: Attribute.light,
   b: Attribute.bio,
   ms: Attribute.massive,
@@ -40,12 +40,13 @@ export const BONUS: {[key: string]: Bonus} = {
   c: Bonus.cloak,
   ls: Bonus.linearSplash,
   s: Bonus.splash,
+  d: Bonus.detection,
 }
 const OTHER_ABBR: {[key: string]: string} = {
   df: 'defending',
 }
 
-const getAbbrValue = (val: string): BonusAttributeLimitation => {
+export const getAbbrValue = (val: string): BonusAttributeLimitation => {
   const negative = val[0] === '!'
   const abbr = negative ? val.slice(1) : val
   let isDefender
@@ -57,8 +58,8 @@ const getAbbrValue = (val: string): BonusAttributeLimitation => {
     negative,
   }
 }
-const getAttributes = (attr: string) => attr.split(',').map((item) => ATTR[item])
-const getBonusValue = (val: string): CardBonusValue => {
+export const getAttributes = (attr: string) => attr.split(',').map((item) => ATTR[item])
+export const getBonusValue = (val: string): CardBonusValue => {
   const values = val.split(' ')
   return {
     value: parseInt(values[0]),

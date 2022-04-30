@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React, {FC, Fragment} from 'react'
 import {styled} from '@linaria/react'
 
 import {TTech} from 'types/models'
@@ -111,7 +111,6 @@ interface Props {
   tech: TTech
 }
 const Tech: FC<Props> = ({tech}) => {
-  enrichWithAttribute(tech.description)
   return (
     <Container>
       <Title>{tech.name}</Title>
@@ -122,13 +121,13 @@ const Tech: FC<Props> = ({tech}) => {
       {!!tech.cardValues && (
         <Cards>
           {tech.cardValues.map((val, ind) => (
-            <>
+            <Fragment key={`tech-battle-cards-${ind}`}>
               <Card key={`tech-cards-${ind}`}>
                 <div>{val[0]}</div>
                 <div>{val[1]}</div>
               </Card>
               {!!tech.cardBonus && <ComplexIcon mainIconAttribute={BONUS[tech.cardBonus]} iconProps={iconProps} />}
-            </>
+            </Fragment>
           ))}
         </Cards>
       )}

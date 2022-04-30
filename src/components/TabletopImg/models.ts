@@ -57,6 +57,15 @@ export const bgBuildingImagePositionByColor: Record<FactionColor, string> = {
   [FactionColor.yellow]: '-410px -510px',
 }
 
+export const bgCardImagePositionByColor: Record<FactionColor, string> = {
+  [FactionColor.blue]: '-160px -260px',
+  [FactionColor.red]: '-200px -300px',
+  [FactionColor.green]: '-270px -170px',
+  [FactionColor.purple]: '-420px -320px',
+  [FactionColor.orange]: '-220px -220px',
+  [FactionColor.yellow]: '-80px ​-280px',
+}
+
 export const buildingByRace: Record<Race, Array<string>> = {
   [Race.protoss]: [gateway, robotics, stargate],
   [Race.zerg]: [spawningPool, infestationPit, spire],

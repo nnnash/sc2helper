@@ -1,43 +1,48 @@
 import React, {FC, useCallback, useRef} from 'react'
 import {styled} from '@linaria/react'
 
-import {FactionColor, raceByColor} from '../models'
-import {RACE_DECKS} from '../../../data/deck'
-import Card from './Card'
+import {EVENT_DECKS} from '../../../data/events'
 import {download} from '../utils'
+import EventCard from './EventCard'
+import space from '../img/space.jpg'
+import {EventCard as TEventCard} from '../../../types/raw'
 
 const Container = styled.div`
   position: relative;
   width: 5000px;
   height: 4900px;
+  background-image: url('${space}');
+  background-size: cover;
 `
 const DeckContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
 `
 
-interface Props {
-  color: FactionColor
-}
-const Decks: FC<Props> = ({color}) => {
+const EventDeck: FC<{stage: TEventCard['stage']}> = ({stage}) => {
   const ref = useRef<HTMLDivElement>(null)
   const onClick = useCallback(() => {
-    download(ref, `deck-${color}`)
+    download(ref, `event-deck-${stage}`)
   }, [ref])
-  const race = raceByColor[color]
-  const {raceTechs, cards} = RACE_DECKS[race]
   return (
     <Container ref={ref} onClick={onClick}>
       <DeckContainer>
-        {cards.map((c, ind) => (
-          <Card color={color} card={c} key={`card-${color}-${ind}`} />
-        ))}
-        {raceTechs.map((rt, ind) => (
-          <Card color={color} tech={rt} key={`tech-card-${color}-${ind}`} />
+        {EVENT_DECKS[stage].map((eventCard, ind) => (
+          <EventCard card={eventCard} key={`event-card-${stage}-${ind}`} />
         ))}
       </DeckContainer>
     </Container>
   )
 }
 
-export default Decks
+const Events: FC = () => {
+  return (
+    <>
+      {([1, 2, 3] as [1, 2, 3]).map((stage) => (
+        <EventDeck key={`event-cards-${stage}`} stage={stage} />
+      ))}
+    </>
+  )
+}
+
+export default Events

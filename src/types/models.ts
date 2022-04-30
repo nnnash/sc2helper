@@ -30,6 +30,7 @@ export enum Bonus {
   cloak = 'cloak',
   splash = 'splash',
   linearSplash = 'linearSplash',
+  detection = 'detection',
 }
 
 export interface BonusAttributeLimitation {
@@ -124,5 +125,35 @@ export interface TTech {
   gas: number
   assistCard: boolean
   cardValues?: Array<[number, number]>
+  smallCardValues?: Array<[number, number]>
   cardBonus?: Bonus
+}
+
+export interface BattleCard {
+  race: Race
+  units?: Array<Unit>
+  attack?: number
+  health?: number
+  text?: string
+  smAttack?: number
+  smHealth?: number
+  assist?: boolean
+  attribute?: Attribute
+}
+
+export interface TechCard {
+  race: Race
+  name: string
+  description: string
+  units: Array<Unit>
+  minerals: number
+  gas: number
+  assistCard: boolean
+  attack?: number
+  health?: number
+  smAttack?: number
+  smHealth?: number
+  cardBonus?: Bonus
+  quantity: number
+  img?: string
 }

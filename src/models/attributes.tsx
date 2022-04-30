@@ -20,6 +20,7 @@ import Speed from '../img/speed.svg'
 import GroundAttack from '../img/machine-gun.svg'
 import AirAttack from '../img/rocket.svg'
 import Support from '../img/two.svg'
+import Radar from '../img/radar.svg'
 
 export const ATTRIBUTES: {[K in Attribute]: AttributeInfo} = {
   [Attribute.heroic]: {
@@ -152,6 +153,12 @@ export const BONUS: {[K in Bonus]: AttributeInfo} = {
     svg: <Support />,
     color: '#173b78',
     tooltip: '+2 support value',
+  },
+  [Bonus.detection]: {
+    id: Bonus.detection,
+    svg: <Radar />,
+    color: '#0a1b37',
+    tooltip: 'Constant detection',
   },
 }
 

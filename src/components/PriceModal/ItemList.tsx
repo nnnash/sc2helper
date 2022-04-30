@@ -80,7 +80,6 @@ interface Props {
 }
 const Item: FC<Props> = ({item}) => {
   const dispatch = useDispatch()
-  console.log('item.img', item.img)
   return (
     <ItemContainer onClick={() => dispatch(actions.addPurchase(item))}>
       {item.type === PriceItemType.unit ? <UnitTitle>{item.name}</UnitTitle> : <h4>{item.name}</h4>}

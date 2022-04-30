@@ -2,19 +2,9 @@ import React, {FC} from 'react'
 import {styled} from '@linaria/react'
 
 import {blockShadow} from '../styling/shared'
-import {Race} from '../../../types/models'
-import minerals from '../img/minerals.png'
-import gas from '../img/gas.png'
-import zergLogo from '../img/zergLogo.png'
-import protossLogo from '../img/protossLogo.png'
-import terranLogo from '../img/terranLogo.png'
 import {useRaceProvider} from '../context'
-
-const logoMap = {
-  [Race.zerg]: zergLogo,
-  [Race.protoss]: protossLogo,
-  [Race.terran]: terranLogo,
-}
+import {logoMap} from '../../../data/race'
+import palette from '../styling/palette'
 
 const SPACING = '10px'
 
@@ -44,9 +34,9 @@ const Hole = styled.div`
   }
 `
 const Main = styled.div`
-  width: 385px;
   display: flex;
   flex-direction: column;
+  flex: 1;
 `
 const Block = styled.div<{fontSize?: number}>`
   text-align: center;
@@ -58,30 +48,22 @@ const Block = styled.div<{fontSize?: number}>`
   font-size: ${(p) => `${p.fontSize || 20}px`};
   ${blockShadow}
 `
+const TopLine = styled.div`
+  display: flex;
+  flex: 1;
+`
 const Name = styled(Block)`
-  width: 100%;
+  width: 280px;
+  margin-right: ${SPACING};
   ${blockShadow}
   h1 {
     text-transform: capitalize;
     margin: 0;
   }
 `
-const SubName = styled.div`
-  display: flex;
-  flex: 1;
-  margin-top: ${SPACING};
-`
 const Description = styled(Block)`
   width: 250px;
   margin-right: ${SPACING};
-`
-const Resource = styled(Block)`
-  width: 100px;
-  margin-right: ${SPACING};
-  img {
-    width: 70px;
-    height: 70px;
-  }
 `
 const Unavailable = styled(Block)`
   width: 0;
@@ -91,6 +73,19 @@ const Pool = styled(Block)`
   width: 0;
   flex-grow: 1;
   margin: 0 ${SPACING};
+`
+const Resources = styled.div`
+  display: flex;
+  margin-top: ${SPACING};
+  justify-content: space-around;
+`
+const Resource = styled(Block)<{color: string}>`
+  margin-right: ${SPACING};
+  width: 35px;
+  height: 35px;
+  background: ${(p) => p.color};
+  color: white;
+  font-weight: bold;
 `
 
 const TopBar: FC = () => {
@@ -104,20 +99,25 @@ const TopBar: FC = () => {
         Start with 10 workers and 10 resources to spend on start units, transports, or additional workers
       </Description>
       <Main>
-        <Name>
-          <h1>{race}</h1>
-        </Name>
-        <SubName>
-          <Resource>
-            <img src={minerals} alt="min" />
-          </Resource>
-          <Resource>
-            <img src={gas} alt="gas" />
-          </Resource>
+        <TopLine>
+          <Name>
+            <h1>{race}</h1>
+          </Name>
           <Unavailable>Unavailable workers</Unavailable>
-        </SubName>
+          <Pool>Worker pool</Pool>
+        </TopLine>
+        {[palette.mineral, palette.gas].map((res) => (
+          <Resources key={res}>
+            {Array(13)
+              .fill('')
+              .map((_, ind) => (
+                <Resource color={res} key={`${res}-${ind}`}>
+                  {ind}
+                </Resource>
+              ))}
+          </Resources>
+        ))}
       </Main>
-      <Pool fontSize={40}>Worker pool</Pool>
     </Container>
   )
 }

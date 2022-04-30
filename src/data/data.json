@@ -185,7 +185,7 @@
       "m": 1,
       "vg": 2,
       "pr": 3,
-      "build": "r2",
+      "build": "r1",
       "attr": "a,m",
       "a1": 8,
       "a2": 7,
@@ -208,7 +208,7 @@
       "m": 3,
       "vg": 2,
       "pr": 5,
-      "build": "r2",
+      "build": "r1",
       "attr": "a,m,ms",
       "a1": 8,
       "a2": 8,
@@ -353,7 +353,6 @@
       "c2": "8/10",
       "c3": "9/10",
       "c4": "8/9",
-      "attLimit": "g",
       "support2": 1,
       "feature": "Cloaks every unit in the battle but not himself. Can call units from any area on any planet to the are Mothership is on in the end of the regrouping phase."
     }
@@ -383,6 +382,7 @@
       "c5": "5/5",
       "tech1": "Metabolic boost",
       "tech2": "Burrow",
+      "tech3": "Baneling nest",
       "melee": 1,
       "attLimit": "g"
     },
@@ -455,6 +455,7 @@
       "c2": "5/6",
       "c3": "6/6",
       "c4": "7/6",
+      "tech1": "Corrosive Bile",
       "mutationfrom": "Roach"
     },
     {
@@ -476,7 +477,8 @@
       "c2": "7/6",
       "c3": "6/6",
       "c4": "6/5",
-      "tech1": "Burrow"
+      "tech1": "Burrow",
+      "tech2": "Lurker den"
     },
     {
       "name": "Lurker",
@@ -668,7 +670,7 @@
       "c3": "5/6",
       "c4": "5/5",
       "ba4": "1 fl",
-      "feature": "Can only stay in the area with a base"
+      "feature": "Queen can never leave the base it was built in.Queen doesn't count in unit building limit. It also doesn't count in area unit limit. If queen is on the planet unit building limit +1."
     }
   ],
   "terran": [
@@ -901,8 +903,8 @@
     {
       "name": "Viking",
       "m": 2,
-      "vg": 1,
-      "pr": 3,
+      "vg": 2,
+      "pr": 4,
       "build": "s1",
       "attr": "a,m",
       "a1": 6,
@@ -952,6 +954,7 @@
       "pr": 3,
       "build": "s2",
       "attr": "l,m",
+      "commBo": "d",
       "tech1": "Build auto-turret",
       "tech2": "Interference matrix",
       "tech3": "Anti-armor missile"
@@ -959,8 +962,8 @@
     {
       "name": "Banshee",
       "m": 2,
-      "vg": 2,
-      "pr": 4,
+      "vg": 1,
+      "pr": 3,
       "build": "s2",
       "attr": "l,m",
       "a1": 6,
@@ -1031,13 +1034,6 @@
     },
     {
       "race": "p",
-      "name": "Robotics (level 2)",
-      "m": 0,
-      "vg": 2,
-      "img": "robotics"
-    },
-    {
-      "race": "p",
       "name": "Stargate (level 1)",
       "m": 1,
       "vg": 2,
@@ -1062,7 +1058,8 @@
       "name": "Improved Nexus",
       "m": 0,
       "vg": 2,
-      "img": "nexusImproved"
+      "img": "nexusImproved",
+      "baseimprovement": "Once per round allows you to either:\n- recall units from any one area on any planet to this area when Nexus is being attacked\n- or increase unit building limit by 1.\nAfter using place the base token with \"used\" symbol up until regrouping phase."
     },
     {
       "race": "p",
@@ -1265,14 +1262,16 @@
       "name": "Planetary fortress (improved base)",
       "m": 0,
       "vg": 2,
-      "img": "planetary"
+      "img": "planetary",
+      "baseimprovement": "Provides you with +1 attack in each skirmish vs ground untis and splash against them. Planetary fortress can't move with mobilization order."
     },
     {
       "race": "t",
       "name": "Orbital command (improved base)",
       "m": 0,
       "vg": 2,
-      "img": "orbital"
+      "img": "orbital",
+      "baseimprovement": "Once per round allows you to either:\n- receive as many additional mineral token as you have mineral resource cards on that planet\n- or receive detector in any battle on any planet.\nAfter using place the base token with \"used\" symbol up until regrouping phase."
     },
     {
       "race": "t",
@@ -1337,7 +1336,7 @@
       "name": "Force field",
       "m": 2,
       "vg": 2,
-      "description": "Blocks all melee units attack and support in skirmish",
+      "description": "Blocks all melee units attack and support in skirmish (both your and your opponent's)",
       "battle": "y"
     },
     {
@@ -1382,7 +1381,7 @@
       "name": "Feedback",
       "m": 1,
       "vg": 2,
-      "description": "Cancels opponent's tech card & +1 attack vs psi units",
+      "description": "Cancels opponent's tech card (those placed in the skirmish) & +1 attack vs psi units",
       "battle": "y"
     },
     {
@@ -1467,7 +1466,9 @@
       "vg": 2,
       "att": "0;0",
       "def": "6;7",
-      "bonus": "c"
+      "bonus": "c",
+      "smatt": "4;4",
+      "smdef": "6;6"
     },
     {
       "race": "z",
@@ -1485,6 +1486,13 @@
     },
     {
       "race": "z",
+      "name": "Corrosive Bile",
+      "m": 1,
+      "vg": 1,
+      "description": "At the start of the battle opponent immediately loses one unit without {sp} with the cost of maximum 2 resources by your choice. If there are two Ravagers then 3 resources. For all three Ravagers - 4 resources."
+    },
+    {
+      "race": "z",
       "name": "Lurker den",
       "m": 1,
       "vg": 1,
@@ -1495,7 +1503,7 @@
       "name": "Neural parasite",
       "m": 2,
       "vg": 3,
-      "description": "Sort of Mind control. If both infestor and opponent survives and opponent is not cloaked it becomes controlled by inifestor. It should never leave the area without this infestor, otherwise it regains self control. 2 cards. can only control up to 2 units. Uses main player's top card.",
+      "description": "If both infestor and opponent survives and opponent is not cloaked (or there is detection) it becomes controlled by inifestor. It should never leave the area without this infestor, otherwise it regains self control. 2 cards. can only control up to 2 units. Uses main player's top card.",
       "battle": "y"
     },
     {
@@ -1526,7 +1534,7 @@
       "name": "Abduct",
       "m": 2,
       "vg": 2,
-      "description": " +1 attack (and +1 more for each support non assist unit in battle).",
+      "description": " +1 attack (and +1 more for each support non assist unit in battle who can attack this type of unit).",
       "battle": "y"
     },
     {
@@ -1534,7 +1542,7 @@
       "name": "Blinding cloud",
       "m": 0,
       "vg": 2,
-      "description": "Turns opponent front-line unit in the skirmish into melee"
+      "description": "Turns opponent's front-line ground unit in the skirmish into melee"
     },
     {
       "race": "z",
@@ -1586,7 +1594,9 @@
       "m": 2,
       "vg": 2,
       "att": "7;7",
-      "def": "3;4"
+      "def": "3;4",
+      "smatt": "5;5",
+      "smdef": "4;4"
     },
     {
       "race": "t",
@@ -1603,7 +1613,9 @@
       "vg": 4,
       "description": "End of the Destroy unit step: if your front-line ghost isn't destroyed, then opponent's front line unit is destroyed. Besides that all other opponent's untis in the battle that cost less than 5 resources are destroyed",
       "att": 0,
-      "def": "6"
+      "def": "6",
+      "smatt": 7,
+      "smdef": 4
     },
     {
       "race": "t",
@@ -1667,7 +1679,9 @@
       "vg": 2,
       "att": "12;12",
       "def": "10;9",
-      "bonus": "r"
+      "bonus": "r",
+      "smatt": "6;5",
+      "smdef": "2;3"
     },
     {
       "race": "t",
@@ -1689,8 +1703,972 @@
       "name": "Medivac",
       "m": 1,
       "vg": 3,
-      "description": "Each transport connecting the planet where the battle occurs gives bio unit +1 health",
+      "description": "Each transport connecting the planet where the battle occurs gives bio units +1 health",
       "battle": "y"
+    }
+  ],
+  "attributes": [
+    {
+      "name": "light"
+    },
+    {
+      "name": "bio"
+    },
+    {
+      "name": "armor"
+    },
+    {
+      "name": "mech"
+    },
+    {
+      "name": "massive"
+    },
+    {
+      "name": "psi"
+    },
+    {
+      "name": "heroic"
+    },
+    {
+      "name": "melee"
+    },
+    {
+      "name": "assist",
+      "descr": "Marks unit as assist which means it can be front-line unit only if it is the only unit in the battle at all."
+    },
+    {
+      "name": "support",
+      "descr": "Unit provides +2 support instead of usual +1."
+    },
+    {
+      "name": "range",
+      "descr": "If unit attacks with this ability and able to kill opponent, then opponent doesn't attack at all, unless it attacks with range as well or it has speed ability. If opponent has support in the skirmish then instead of blocking the whole attack it will reduce their support by 1. If you have a support without range ability then opponent attacks it instead."
+    },
+    {
+      "name": "speed",
+      "descr": "Allows to ignore opponent's unit's range ability and treat it as usual attack."
+    },
+    {
+      "name": "cloak",
+      "descr": "The same as in first Starcraft - cloaked units destroyed in the battle without detection is not destroyed but retreated to the free/friendly area on the same planet. If no suitable areas are there on the planet they are destroyed"
+    },
+    {
+      "name": "splash",
+      "descr": "In the end of Destroy units phase if your attack with that bonus managed to kill opponent's unit then he must choose one more survived in this battle unit and kill it (the one that can actually be attacked by your unit)."
+    },
+    {
+      "name": "linearSplash",
+      "descr": "Works as usual splash but can only affects support units in the same skirmish."
+    },
+    {
+      "name": "detection",
+      "descr": "Unit provides constant detection in the battle."
+    },
+    {
+      "name": "ground",
+      "descr": "Can only attack ground units"
+    },
+    {
+      "name": "air",
+      "descr": "Can only attack air units"
+    },
+    {
+      "abbr": "1 l"
+    },
+    {
+      "abbr": "1 a,2 a"
+    },
+    {
+      "abbr": "1 b"
+    },
+    {
+      "abbr": "s l"
+    },
+    {
+      "abbr": "s mel"
+    },
+    {
+      "abbr": "r fl"
+    },
+    {
+      "abbr": "1 gr,2 gr"
+    },
+    {
+      "abbr": "r gr"
+    }
+  ],
+  "cards": [
+    {
+      "race": "p",
+      "units": "Sentry\nPhoenix",
+      "attack": 4,
+      "health": 5,
+      "text": "Phoenix +2 attack",
+      "smattack": 3,
+      "smhealth": 4
+    },
+    {
+      "race": "p",
+      "units": "Sentry\nAdept",
+      "attack": 5,
+      "health": 4,
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "p",
+      "units": "Phoenix\nSentry\nAdept",
+      "attack": 5,
+      "health": 5,
+      "smattack": 3,
+      "smhealth": 4
+    },
+    {
+      "race": "p",
+      "units": "Phoenix\nAdept\nZealot",
+      "attack": 5,
+      "health": 6,
+      "smattack": 3,
+      "smhealth": 4
+    },
+    {
+      "race": "p",
+      "units": "Zealot\nPhoenix",
+      "attack": 5,
+      "health": 7,
+      "smattack": 2,
+      "smhealth": 5
+    },
+    {
+      "race": "p",
+      "units": "Sentry\nAdept\nDisruptor",
+      "attack": 6,
+      "health": 4,
+      "text": "Disruptor +1 attack & splash vs light units",
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "p",
+      "units": "Void ray\nZealot\nImmortal",
+      "attack": 6,
+      "health": 6,
+      "text": "Immortal +2 health",
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "p",
+      "units": "Immortal\nZealot\nDark templar",
+      "attack": 6,
+      "health": 7,
+      "smattack": 3,
+      "smhealth": 4
+    },
+    {
+      "race": "p",
+      "units": "Stalker\nVoid ray\nTempest",
+      "attack": 6,
+      "health": 7,
+      "text": "Tempest +1 attack vs ground & +2 attack vs flying massive units",
+      "smattack": 3,
+      "smhealth": 4
+    },
+    {
+      "race": "p",
+      "units": "Zealot\nDisruptor",
+      "attack": 7,
+      "health": 5,
+      "smattack": 5,
+      "smhealth": 2
+    },
+    {
+      "race": "p",
+      "units": "Stalker\nImmortal\nDark templar",
+      "attack": 7,
+      "health": 6,
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "p",
+      "units": "Stalker\nVoid ray\nTempest",
+      "attack": 7,
+      "health": 6,
+      "text": "Tempest +1 attack vs ground & +2 attack vs flying massive units",
+      "smattack": 5,
+      "smhealth": 2
+    },
+    {
+      "race": "p",
+      "units": "Stalker\nImmortal",
+      "attack": 7,
+      "health": 7,
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "p",
+      "units": "Tempest\nVoid ray",
+      "attack": 7,
+      "health": 7,
+      "text": "Tempest +1 attack vs ground units & +2 attack vs flying massive units",
+      "smattack": 2,
+      "smhealth": 5
+    },
+    {
+      "race": "p",
+      "units": "Dark templar\nDisruptor\nMothership",
+      "attack": 8,
+      "health": 5,
+      "text": "Mothership +5 health",
+      "smattack": 5,
+      "smhealth": 2
+    },
+    {
+      "race": "p",
+      "units": "Colossus\nTempest",
+      "attack": 8,
+      "health": 7,
+      "text": "Tempest +1 attack vs flying massive units\nColossus gets splash vs light units",
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "p",
+      "units": "Colossus\nArchon\nCarrier",
+      "attack": 8,
+      "health": 8,
+      "text": "Archon +1 attack vs bio units\nColossus +1 attack vs light units",
+      "smattack": 3,
+      "smhealth": 4
+    },
+    {
+      "race": "p",
+      "units": "Archon\nCarrier\nMothership",
+      "attack": 8,
+      "health": 9,
+      "text": "Archon +1 attack vs bio units",
+      "smattack": 2,
+      "smhealth": 5
+    },
+    {
+      "race": "p",
+      "units": "Carrier\nArchon",
+      "attack": 9,
+      "health": 8,
+      "text": "Archon +1 attack vs bio units",
+      "smattack": 5,
+      "smhealth": 2
+    },
+    {
+      "race": "p",
+      "units": "Archon\nMothership\nCarrier",
+      "attack": 9,
+      "health": 8,
+      "text": "Archon & Mothership +1 health",
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "p",
+      "units": "Dark templar\nColossus",
+      "attack": 8,
+      "health": 6,
+      "text": "Colossus +1 health & +1 attack vs light units & splash vs light units",
+      "smattack": 5,
+      "smhealth": 2
+    },
+    {
+      "race": "p",
+      "units": "Colossus\nMothership",
+      "attack": 9,
+      "health": 7,
+      "text": "Mothership +3 health\nColossus +1 attack vs light units",
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "p",
+      "text": "Gain +1 health",
+      "assist": true
+    },
+    {
+      "race": "t",
+      "units": "Marine\nReaper\nGhost",
+      "attack": 5,
+      "health": 4,
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "t",
+      "units": "Marauder\nMarine",
+      "attack": 5,
+      "health": 5,
+      "smattack": 3,
+      "smhealth": 4
+    },
+    {
+      "race": "t",
+      "units": "Reaper\nGhost",
+      "attack": 5,
+      "health": 5,
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "t",
+      "units": "Hellion\nMarauder\nMarine",
+      "attack": 5,
+      "health": 6,
+      "text": "Hellion +1 attack vs light units & linear splash vs light units",
+      "smattack": 2,
+      "smhealth": 5
+    },
+    {
+      "race": "t",
+      "units": "Marine\nReaper\nGhost",
+      "attack": 6,
+      "health": 4,
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "t",
+      "units": "Viking\nWidow mine",
+      "attack": 6,
+      "health": 4,
+      "text": "Widow mine +2 health if defending",
+      "smattack": 5,
+      "smhealth": 2
+    },
+    {
+      "race": "t",
+      "units": "Marine\nReaper\nGhost",
+      "attack": 6,
+      "health": 5,
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "t",
+      "units": "Banshee\nViking",
+      "attack": 6,
+      "health": 5,
+      "text": "Viking +1 attack vs ground mech units",
+      "smattack": 3,
+      "smhealth": 4
+    },
+    {
+      "race": "t",
+      "units": "Marauder\nHellion\nWidow mine",
+      "attack": 6,
+      "health": 5,
+      "text": "Hellion +1 vs attack light & linear splash vs light units\nWidow mine +2 attack, plays small value for defense but +1 if defending ",
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "t",
+      "units": "Marauder\nCyclone",
+      "attack": 6,
+      "health": 6,
+      "smattack": 3,
+      "smhealth": 4
+    },
+    {
+      "race": "t",
+      "units": "Banshee\nViking",
+      "attack": 6,
+      "health": 6,
+      "text": "Viking +1 attack vs flying armored units",
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "t",
+      "units": "Liberator\nCyclone",
+      "attack": 6,
+      "health": 7,
+      "smattack": 2,
+      "smhealth": 5
+    },
+    {
+      "race": "t",
+      "units": "Hellion\nBanshee\nViking",
+      "attack": 7,
+      "health": 5,
+      "text": "Hellion gets splash vs light units",
+      "smattack": 5,
+      "smhealth": 2
+    },
+    {
+      "race": "t",
+      "units": "Hellion\nCyclone\nWidow mine",
+      "attack": 7,
+      "health": 6,
+      "text": "Hellion gets splash vs light units\nWidow mine plays small value for defense (+2 if defending)",
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "t",
+      "units": "Banshee\nLiberator\nWidow mine",
+      "attack": 7,
+      "health": 6,
+      "text": "Widow mine plays small value for defense",
+      "smattack": 3,
+      "smhealth": 4
+    },
+    {
+      "race": "t",
+      "units": "Thor\nBattlecruiser",
+      "attack": 9,
+      "health": 9,
+      "text": "Thor +1 attack vs flying light units and splash vs flying light units\nBattlecruiser +2 attack vs ground units",
+      "smattack": 5,
+      "smhealth": 2
+    },
+    {
+      "race": "t",
+      "units": "Thor\nBattlecruiser",
+      "attack": 9,
+      "health": 10,
+      "text": "Thor +1 attack vs flying light units and splash vs flying light units\nBattlecruiser +1 attack vs ground units",
+      "smattack": 2,
+      "smhealth": 5
+    },
+    {
+      "race": "t",
+      "units": "Siege tank\nLiberator\nCyclone",
+      "attack": 5,
+      "health": 7,
+      "text": "Tank +4 attack\nCyclone +2 attack",
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "t",
+      "units": "Siege tank\nLiberator",
+      "attack": 5,
+      "health": 8,
+      "text": "Tank +3 attack & +1 health vs non melee units attack & splash & range",
+      "smattack": 2,
+      "smhealth": 5
+    },
+    {
+      "race": "t",
+      "units": "Siege tank\nBattlecruiser",
+      "attack": 9,
+      "health": 8,
+      "text": "Tank +1 health vs non melee units & splash & range\nBattlercruiser +2 attack & +2 health & +1 attack vs ground units",
+      "smattack": 5,
+      "smhealth": 2
+    },
+    {
+      "race": "t",
+      "units": "Siege tank\nThor",
+      "attack": 9,
+      "health": 8,
+      "text": "Thor +1 attack & +1 health & +1 attack vs flying massive units & +1 health vs flying units",
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "t",
+      "units": "Battlecruiser\nThor",
+      "attack": 10,
+      "health": 9,
+      "text": "Thor +1 vs flying massive units\nBattlecruiser +1 vs ground units",
+      "smattack": 5,
+      "smhealth": 2
+    },
+    {
+      "race": "t",
+      "text": "Gain +1 health and, if able, pay one token of mineral or gas",
+      "assist": true,
+      "attr": "m"
+    },
+    {
+      "race": "z",
+      "units": "Zergling\nQueen",
+      "attack": 4,
+      "health": 5,
+      "text": "Queen +1 attack vs flying units & +1 health",
+      "smattack": 3,
+      "smhealth": 4
+    },
+    {
+      "race": "z",
+      "units": "Roach\nQueen\nZergling",
+      "attack": 5,
+      "health": 5,
+      "text": "Queen +1 attack vs flying units",
+      "smattack": 3,
+      "smhealth": 4
+    },
+    {
+      "race": "z",
+      "units": "Ravager\nRoach",
+      "attack": 5,
+      "health": 6,
+      "smattack": 3,
+      "smhealth": 4
+    },
+    {
+      "race": "z",
+      "units": "Zergling\nQueen",
+      "attack": 5,
+      "health": 6,
+      "smattack": 2,
+      "smhealth": 5
+    },
+    {
+      "race": "z",
+      "units": "Roach\nQueen\nHydralisk",
+      "attack": 6,
+      "health": 5,
+      "smattack": 5,
+      "smhealth": 2
+    },
+    {
+      "race": "z",
+      "units": "Mutalisk\nHydralisk",
+      "attack": 6,
+      "health": 6,
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "z",
+      "units": "Ravager\nSwarm host\nLurker",
+      "attack": 6,
+      "health": 6,
+      "text": "Lurker +1 attack vs armored units",
+      "smattack": 3,
+      "smhealth": 4
+    },
+    {
+      "race": "z",
+      "units": "Swarm host\nLurker\nMutalisk",
+      "attack": 6,
+      "health": 7,
+      "text": "Lurker +1 attack vs armored units",
+      "smattack": 2,
+      "smhealth": 5
+    },
+    {
+      "race": "z",
+      "units": "Hydralisk\nLurker",
+      "attack": 7,
+      "health": 5,
+      "text": "Lurker +1 attack vs armored units",
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "z",
+      "units": "Ravager\nSwarm host\nBaneling",
+      "attack": 7,
+      "health": 5,
+      "smattack": 5,
+      "smhealth": 2
+    },
+    {
+      "race": "z",
+      "units": "Hydralisk\nMutalisk",
+      "attack": 7,
+      "health": 6,
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "z",
+      "units": "Lurker\nRavager\nSwarm host",
+      "attack": 7,
+      "health": 6,
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "z",
+      "units": "Brood lord\nCorruptor",
+      "attack": 8,
+      "health": 8,
+      "text": "Coruptor +1 attack vs armored units",
+      "smattack": 3,
+      "smhealth": 4
+    },
+    {
+      "race": "z",
+      "units": "Brood lord\nUltralisk",
+      "attack": 8,
+      "health": 9,
+      "smattack": 2,
+      "smhealth": 5
+    },
+    {
+      "race": "z",
+      "units": "Brood lord\nUltralisk",
+      "attack": 9,
+      "health": 8,
+      "smattack": 5,
+      "smhealth": 2
+    },
+    {
+      "race": "z",
+      "units": "Zergling\nBaneling",
+      "attack": 6,
+      "health": 3,
+      "text": "Baneling +2 attack",
+      "smattack": 5,
+      "smhealth": 2
+    },
+    {
+      "race": "z",
+      "units": "Zergling\nBaneling",
+      "attack": 5,
+      "health": 4,
+      "text": "Baneling +2 attack",
+      "smattack": 4,
+      "smhealth": 3
+    },
+    {
+      "race": "z",
+      "units": "Mutalisk\nCorruptor",
+      "attack": 5,
+      "health": 7,
+      "text": "Corruptor +3 attack & +1 attack vs armored units",
+      "smattack": 2,
+      "smhealth": 5
+    },
+    {
+      "race": "z",
+      "units": "Corruptor\nUltralisk",
+      "attack": 7,
+      "health": 8,
+      "text": "Ultralisk +3 attack",
+      "smattack": 5,
+      "smhealth": 2
+    },
+    {
+      "race": "z",
+      "units": "Brood lord\nUltralisk",
+      "attack": 9,
+      "health": 9,
+      "text": "Ultralisk +1 health",
+      "smattack": 3,
+      "smhealth": 4
+    },
+    {
+      "race": "z",
+      "units": "Baneling",
+      "attack": 8,
+      "health": 4,
+      "smattack": 6,
+      "smhealth": 1
+    },
+    {
+      "race": "z",
+      "units": "Corruptor\nRoach",
+      "attack": 4,
+      "health": 7,
+      "text": "Corruptor +5 attack",
+      "smattack": 3,
+      "smhealth": 4
+    },
+    {
+      "race": "z",
+      "text": "Gain +1 attack if you have at least one supporting unit in this skirmish",
+      "assist": true
+    }
+  ],
+  "events": [
+    {
+      "stage": 1,
+      "name": "Techological Advance\n",
+      "amount": 2,
+      "text": "Immediately purchase the technology of your chocie at a discount of 2 resource. You may choose to add one of the purchased cards directly to your hand. Then shuffle your discard pile into your Combat deck."
+    },
+    {
+      "stage": 1,
+      "name": "Emergency Recrouting\n",
+      "amount": 2,
+      "text": "Move up to 2 of your transports to any other navigation routes",
+      "alternative": "Gain 1 free transport on any navigation route."
+    },
+    {
+      "stage": 1,
+      "name": "Navigation Error",
+      "amount": 2,
+      "text": "Choose either end of any z-axis navigation route. Switch its location with either end of any other z-xis navigation route. Transports on these routes move as well. Both ends of a z-axis navigation route may never connect the same planet."
+    },
+    {
+      "stage": 1,
+      "name": "Refinery Bombardment",
+      "amount": 2,
+      "text": "Choose one resource-providing area. If the resource is partially depleted, deplete it. If the resource is undepleted, partially deplete it."
+    },
+    {
+      "stage": 1,
+      "name": "Aggressive Strategy",
+      "amount": 2,
+      "strategy": true,
+      "text": "Your Combat card hand limit is increased by 1. In addition, you may draw 1 additional Combat card each time you start a battle."
+    },
+    {
+      "stage": 1,
+      "name": "Retreat",
+      "amount": 2,
+      "start": "the battle",
+      "text": "The battle is canceled and no cards are drawn. Move all of your units from the area into one friendly or empty area on the same planet. Units in excess of the unit limit are destroyed."
+    },
+    {
+      "stage": 1,
+      "name": "Defensice Strategy",
+      "amount": 2,
+      "strategy": true,
+      "text": "Whenever an opponent starts a battle against you, you may draw 2 additional Combat cards."
+    },
+    {
+      "stage": 1,
+      "name": "Scouting Party",
+      "amount": 2,
+      "text": "Immediately gain the following units in one friendly or empty area.",
+      "t": "2 free Marines",
+      "z": "2 free Zerglings",
+      "p": "1 free Zealot"
+    },
+    {
+      "stage": 1,
+      "name": "Base Construction",
+      "amount": 2,
+      "text": "Immediately purchase one building or module at a discount of 2 resource (if it costs more than 2 just move workers on necessary resource areas to spend collected resources immediately)."
+    },
+    {
+      "stage": 1,
+      "name": "Versatile Strategy",
+      "amount": 2,
+      "strategy": true,
+      "text": "You may execute 2 Event cards during each future Regrouping Phase (instead of 1)."
+    },
+    {
+      "stage": 1,
+      "name": "Advanced Reconnaissance",
+      "amount": 2,
+      "start": "the battle",
+      "text": "Your opponent must play his Combat cards first in the battle, and he must place them all faceup."
+    },
+    {
+      "stage": 1,
+      "name": "Flawless Defense Plan",
+      "amount": 2,
+      "start": "the battle",
+      "text": "In this battle, you gain +2 health in each skirmish."
+    },
+    {
+      "stage": 1,
+      "name": "Preemptive Action",
+      "start": "the Planning Phase",
+      "text": "Place one of your orders on any planet (according to normal placement rules). You will still place 4 more orders during this planning phase."
+    },
+    {
+      "stage": 1,
+      "name": "Encrypted Data Chip",
+      "text": "Receive 2 resource of your choice. You may then immediately purchase one of the following technologies for free.",
+      "t": "Build auto-turret",
+      "z": "Parasitic bomb",
+      "p": "Revelation"
+    },
+    {
+      "stage": 1,
+      "name": "Desperate Measures",
+      "playarea": true,
+      "text": "After revealing a special order during the Action Phase, you may discard this card to execute it even if you're not allowed to play any more special orders."
+    },
+    {
+      "stage": 2,
+      "name": "Reinforcements",
+      "amount": 2,
+      "text": "Immediately gain the following units in one friendly or empty area.",
+      "t": "1 free Marauder and 1 free Siege Tank",
+      "z": "1 free Hydralisk and 1 free Ultralisk",
+      "p": "1 free Zealot and 1 free Archon"
+    },
+    {
+      "stage": 2,
+      "name": "Air Support",
+      "amount": 2,
+      "text": "Immediately gain the following units in one friendly or empty area.",
+      "t": "1 free Banshee",
+      "z": "1 free Mutalisk",
+      "p": "1 free Void Ray"
+    },
+    {
+      "stage": 2,
+      "name": "Invasion Preparation",
+      "amount": 2,
+      "text": "Immediately gain 1 free transport in each of two different navigation routes",
+      "alternative": "Gain of the following units in one friendly area for free.",
+      "t": "Banshee",
+      "z": "Mutalisk",
+      "p": "Void Ray"
+    },
+    {
+      "stage": 2,
+      "name": "Progressive Strategy",
+      "amount": 2,
+      "strategy": true,
+      "start": "each Regrouping Phase",
+      "text": "You may draw the top card of the Event deck."
+    },
+    {
+      "stage": 2,
+      "name": "Retreat",
+      "amount": 2,
+      "start": "a battle",
+      "text": "The battle is canceled and no cards are drawn. Move all of your units from the area into one friendly or empty area on the same planet. Units in excess of the unit limit are destroyed."
+    },
+    {
+      "stage": 2,
+      "name": "Rich Vein",
+      "amount": 2,
+      "text": "Immediately gain 4 free workers and place them in your Worker Pool area. You may then remove a partially depleted token from one resource of your choice. (If you do, also flip the corresponding Resource card faceup.)"
+    },
+    {
+      "stage": 2,
+      "name": "Saboteur",
+      "amount": 2,
+      "text": "Choose one event card in an opponent's play area and discard it from play."
+    },
+    {
+      "stage": 2,
+      "name": "Refinery Sabotage",
+      "amount": 2,
+      "text": "Choose up to two resource-providing areas. In each of the areas, if the resource is partially depleted, deplete it. If the resource is undepleted, partially deplete it",
+      "alternative": "Choose one undepleted resource-providing area and undeplete it"
+    },
+    {
+      "stage": 2,
+      "name": "Adaptive Strategy",
+      "strategy": true,
+      "text": "When playing a Combat card directly from your deck, you may draw 2, look at them, and choose 1 to play and to discard."
+    },
+    {
+      "stage": 2,
+      "name": "Unexpected Action",
+      "end": "the Planning Phase",
+      "text": "Place one of your orders on any planet (according to normal placement rules). This will be the fifth order you place this phase."
+    },
+    {
+      "stage": 2,
+      "name": "Industrial Strategy",
+      "strategy": true,
+      "start": "each Regrouping Phase",
+      "text": "You may spend 2 mineral and 2 gas to gain 1 conquest point."
+    },
+    {
+      "stage": 2,
+      "name": "Brillaint Engeneering",
+      "text": "Immediately receive one free building or module."
+    },
+    {
+      "stage": 2,
+      "name": "Stellar Maelstrom",
+      "amount": 2,
+      "text": "Immediately choose one navigation route. Any transports in the navigation route are destroyed."
+    },
+    {
+      "stage": 2,
+      "name": "Flawless Attack Plan",
+      "amount": 2,
+      "start": "a battle",
+      "text": "In this battle, you gain +2 attack in each skirmish."
+    },
+    {
+      "stage": 2,
+      "name": "Specialized Strategy",
+      "strategy": true,
+      "start": "each Regrouping Phase",
+      "text": "Choose up to 2 Combat cards from your discard pile or deck and add them to your hand."
+    },
+    {
+      "stage": 2,
+      "name": "Heroic Strategy",
+      "strategy": true,
+      "text": "You can destroy opponent's base or other installations in the area if you exceed your opponent's health by 3 in any skirmish or if you have {h} unit on the front-line."
+    },
+    {
+      "stage": 2,
+      "name": "Xel'Naga Artifact",
+      "text": "Receive 3 mineral and 1 gas. You may then immediately purchase one of the following technologies for free:",
+      "t": "EMP round",
+      "z": "Fungal growth",
+      "p": "Feedback"
+    },
+    {
+      "stage": 3,
+      "name": "Technological Breakthrough",
+      "amount": 2,
+      "text": "Immediately receive the technology of your choice for free. You may choose to add any of the newly gained Technology cards directly into your hand. Then shuffle your discard pile into your Combat deck."
+    },
+    {
+      "stage": 3,
+      "name": "Double time",
+      "amount": 2,
+      "playarea": true,
+      "text": "Before executing any of your orders you may discard this card to remove all of your workers from Resource cards and immediately use them to collect resources."
+    },
+    {
+      "stage": 3,
+      "name": "Stalling Tactic",
+      "amount": 3,
+      "text": "Gain 1 conquest point and shuffle this card back into the Event card deck."
+    },
+    {
+      "stage": 3,
+      "name": "Flagship",
+      "amount": 2,
+      "text": "Immediately gain the following units in one friendly or empty are.",
+      "t": "1 free Battlecruiser",
+      "z": "1 free Brood Lord",
+      "p": "1 free Carrier"
+    },
+    {
+      "stage": 3,
+      "name": "Martial Shortage",
+      "text": "Choose up to three resource-providing areas. In each of the areas, if the resource is undepleted, deplete it. If the resource is undepleted, partially deplete it. You can use two depletion actions for one full depleteion from undepleted state."
+    },
+    {
+      "stage": 3,
+      "name": "The End Draws Near",
+      "amount": 3,
+      "text": "You MUST immediately execute this card and place it into the common play area. You may either gain 1 conquest point OR execute another Event card. If two or more The End Draws Near cards are in the common play area at the end of the Paly Event Card step, the game ends."
+    },
+    {
+      "stage": 3,
+      "name": "Accelerated Progress",
+      "amount": 2,
+      "text": "Draw the top card of the Event deck and immedialy execute it."
+    },
+    {
+      "stage": 3,
+      "name": "Informant",
+      "amount": 2,
+      "text": "Immediately take one Event card that is in an opponent's play area and execute it (place it in your play area instead)."
+    },
+    {
+      "stage": 3,
+      "name": "Suprise Assault",
+      "amount": 2,
+      "text": "Immediately choose one area. You may move up to two of your units from the chosen area to one empty or friendly area on any planet. Units in excess of the unit limit are destroyed."
+    },
+    {
+      "stage": 3,
+      "name": "Unconventional Strategy",
+      "strategy": true,
+      "text": "You may use each of your special orders each Planning Phase (no matter how many you are allowed to)."
     }
   ]
 }

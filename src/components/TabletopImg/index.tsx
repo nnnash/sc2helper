@@ -6,6 +6,10 @@ import Collapse from './Collapse'
 import Buildings from './Buildings'
 import {Race} from '../../types/models'
 import Tips2 from './Tips2'
+import Attributes from './Tips2/Attributes'
+import Decks from './Decks'
+import Tips from './Tips'
+import Events from './Events'
 
 const FilledWithColors: FC<{Comp: FC<{color: FactionColor}>}> = ({Comp}) => (
   <>
@@ -32,6 +36,16 @@ const TabletopImg = () => (
     </Collapse>
     <Collapse name="Tips 2">
       <FilledWithRace Comp={Tips2} />
+      <Attributes />
+    </Collapse>
+    <Collapse name="Decks">
+      <FilledWithColors Comp={Decks} />
+    </Collapse>
+    <Collapse name="Tips">
+      <Tips />
+    </Collapse>
+    <Collapse name="Event cards">
+      <Events />
     </Collapse>
   </>
 )

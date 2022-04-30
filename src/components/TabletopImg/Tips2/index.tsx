@@ -1,13 +1,15 @@
-import React, {FC, useMemo} from 'react'
+import React, {FC, useCallback, useMemo, useRef} from 'react'
 import {styled} from '@linaria/react'
 
 import {Race, TBuilding, Unit} from 'types/models'
 import {getDataByRace} from 'data/units'
-import tips2 from '../img/tips2.png'
+import space from '../img/space.jpg'
 import palette from '../styling/palette'
 import {BUILDING_LISTS} from '../../../data/buildings'
 import {buildingByRace} from '../models'
 import Building from './Building'
+import RaceTechs from './RaceTechs'
+import {download} from '../utils'
 
 const SPACING = 16
 const Container = styled.div`
@@ -32,8 +34,9 @@ const Content = styled.div`
   > * {
     padding: 8px;
     background-color: ${palette.tipsBg};
-    width: 24%;
+    width: 24.4%;
     margin-right: ${SPACING}px;
+    flex-grow: 1;
   }
 `
 const Title = styled.h1`
@@ -41,12 +44,17 @@ const Title = styled.h1`
   text-transform: capitalize;
   color: ${palette.tipsColor};
   text-align: center;
+  flex-grow: 0;
 `
 
 interface Props {
   race?: Race
 }
 const Tips2: FC<Props> = ({race}) => {
+  const ref = useRef<HTMLDivElement>(null)
+  const onClick = useCallback(() => {
+    download(ref, `faction-${race}`)
+  }, [ref])
   if (!race) return null
   const units = getDataByRace(race)
   const buildings = useMemo(
@@ -56,16 +64,10 @@ const Tips2: FC<Props> = ({race}) => {
           buildings: Array<{
             building: TBuilding
             units: Array<Unit>
-            mutant?: Unit
           }>
         }>
       >((acc, item, ind) => {
         if (item.build.length < 2) return acc
-        if (item.mutationFrom && acc.length && acc[acc.length - 1].buildings.length) {
-          const buildings = acc[acc.length - 1].buildings
-          buildings[buildings.length - 1].mutant = item
-          return acc
-        }
         const buildingAbbr = item.build[0]
         const list = BUILDING_LISTS[race]
         const buildingData = list.find((b) => `${b.abbr}${b.level}` === item.build)
@@ -104,8 +106,8 @@ const Tips2: FC<Props> = ({race}) => {
   )
 
   return (
-    <Container>
-      <img src={tips2} alt="tips2" />
+    <Container ref={ref} onClick={onClick}>
+      <img src={space} alt="tips2" width={1920} height={1080} />
       <Content>
         <Title>{race ?? 'tips'}</Title>
         {buildings.map((b, ind) => (
@@ -118,6 +120,7 @@ const Tips2: FC<Props> = ({race}) => {
             ))}
           </React.Fragment>
         ))}
+        <RaceTechs race={race} />
       </Content>
     </Container>
   )

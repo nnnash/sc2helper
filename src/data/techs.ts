@@ -4,6 +4,13 @@ import {Raw} from '../types/raw'
 import {RACE_ABBR} from './race'
 import {BONUS, getDataByRace} from './units'
 
+const getValues = (att?: string, def?: string) => {
+  if (att === undefined || def === undefined) return undefined
+  return String(att)
+    .split(';')
+    .map((val, ind) => [+val, +String(def).split(';')[ind]]) as [number, number][]
+}
+
 const getTechs = (race: Race) => {
   const data = d as Raw
   const units = getDataByRace(race)
@@ -20,10 +27,8 @@ const getTechs = (race: Race) => {
         description: item.description || '',
         assistCard: !!item.battle,
         cardBonus: item.bonus ? BONUS[item.bonus] : undefined,
-        cardValues:
-          item.att && item.def
-            ? [0, 1].map((ind) => [+item.att!.split(';')[ind], +item.def!.split(';')[ind]])
-            : undefined,
+        cardValues: getValues(item.att, item.def),
+        smallCardValues: getValues(item.smatt, item.smdef),
       },
     ]
   }, [])

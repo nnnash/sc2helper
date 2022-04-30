@@ -32,7 +32,7 @@ const CardValue = styled.div<{isDefend?: boolean}>`
   margin-right: 4px;
   padding-top: 4px;
   background: #031e3a;
-  color: ${(props) => (props.isDefend ? '#48de48' : 'red')};
+  color: ${(props) => (props.isDefend ? '#{race} = useRaceProvider()' : 'red')};
   text-align: center;
   font-weight: bold;
 `

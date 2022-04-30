@@ -1,23 +1,15 @@
 import React, {FC} from 'react'
 import {styled} from '@linaria/react'
 
-import {TBuilding, TTech, Unit} from 'types/models'
+import {TTech, Unit} from 'types/models'
 import palette from '../styling/palette'
-import {getUnitImage} from '../../UnitImage'
 import UnitTitle from 'components/UnitTitle'
 import Attributes from '../common/Attributes'
 import {blockShadow} from '../styling/shared'
-import {TECHS} from '../../../data/techs'
 import Tech from './Tech'
 
-const Container = styled.div`
-  clear: left;
-`
 const ImgWrapper = styled.div`
   float: left;
-`
-const BuildImg = styled.img`
-  width: 90px;
 `
 const Resource = styled.div`
   font-size: 20px;
@@ -28,10 +20,6 @@ const Mineral = styled(Resource)`
 `
 const Gas = styled(Resource)`
   color: ${palette.gas};
-`
-const BuildPrice = styled.div`
-  display: flex;
-  justify-content: space-around;
 `
 const UnitWrapper = styled.div`
   :not(:first-child) {
@@ -44,9 +32,9 @@ const UnitTitleWrapper = styled(ImgWrapper)`
   position: relative;
   padding-top: 14px;
 `
-const Title = styled(UnitTitle)`
+const Title = styled(UnitTitle)<{isUnit: boolean}>`
   position: absolute;
-  width: 120px;
+  width: ${(p) => (p.isUnit ? 130 : 160)}px;
   max-width: unset;
   top: 0;
   left: 0;
@@ -61,7 +49,7 @@ const UnitImg = styled.img`
 const AttributesWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding-left: 30px;
+  padding-left: 40px;
   > * {
     margin-left: 4px;
   }
@@ -99,61 +87,79 @@ const CardBonusesWrapper = styled.div`
 const CardBonus = styled.div<{color: string}>`
   color: ${(p) => p.color};
 `
+const Feature = styled.div<{isUnit: boolean}>`
+  padding-top: ${(p) => (p.isUnit ? 0 : '24px')};
+  margin: 8px;
+`
 
-interface UnitProps {
-  unit: Unit
-  techs: Array<TTech>
+interface Item extends Partial<Unit> {
+  name: Unit['name']
+  minerals: Unit['minerals']
+  gas: Unit['gas']
+  feature?: Unit['feature']
 }
-export const PricedItem: FC<UnitProps> = ({unit, techs}) => (
+const isUnit = (item: Item): item is Unit => {
+  return !!item.attributes
+}
+interface Props {
+  item: Item
+  techs: Array<TTech>
+  img: string
+}
+export const PricedItem: FC<Props> = ({item, img, techs}) => (
   <UnitWrapper>
     <UnitTitleWrapper>
       <div>
-        <Mineral>{unit.minerals}</Mineral>
-        <Gas>{unit.gas}</Gas>
+        <Mineral>{item.minerals}</Mineral>
+        <Gas>{item.gas}</Gas>
       </div>
-      <UnitImg src={getUnitImage(unit.name)} alt="init" />
-      <Title>{unit.name}</Title>
+      <UnitImg src={img} alt="init" />
+      <Title isUnit={isUnit(item)}>{item.name}</Title>
     </UnitTitleWrapper>
-    <AttributesWrapper>
-      <Attributes unit={unit} />
-    </AttributesWrapper>
-    {!!unit.mutationFrom && (
-      <div>
-        Morphs from {unit.mutationFrom.length === 1 ? '' : 'two of '}
-        {unit.mutationFrom.join(' or ')}
-      </div>
+    {isUnit(item) && (
+      <>
+        <AttributesWrapper>
+          <Attributes unit={item} />
+        </AttributesWrapper>
+        {!!item.mutationFrom && (
+          <div>
+            Morphs from {item.mutationFrom.length === 1 ? '' : 'two of '}
+            {item.mutationFrom.join(' or ')}
+          </div>
+        )}
+        <CardsWrapper>
+          {item.cards.map((card, ind) => (
+            <div key={`${item.name}-card-${ind}`}>
+              <Card>
+                <div>{card.attack}</div>
+                <div>{card.health}</div>
+              </Card>
+              {!!(card.attackBonus?.[0] || card.healthBonus?.[0]) && (
+                <CardBonusesWrapper>
+                  {card.attackBonus?.map((bonus) => (
+                    <CardBonus key={bonus.type[0].type} color="#8e2a2a">
+                      {bonus.value} {bonus.type.map((b) => b.type).join(' ')}
+                    </CardBonus>
+                  ))}
+                  {card.healthBonus?.map((bonus) => (
+                    <CardBonus key={bonus.type[0].type} color="green">
+                      {bonus.value} {bonus.type.map((b) => `${b.negative ? 'non ' : ''}${b.type}`).join(' ')}
+                    </CardBonus>
+                  ))}
+                </CardBonusesWrapper>
+              )}
+            </div>
+          ))}
+        </CardsWrapper>
+      </>
     )}
-    <CardsWrapper>
-      {unit.cards.map((card, ind) => (
-        <div key={`${unit.name}-card-${ind}`}>
-          <Card>
-            <div>{card.attack}</div>
-            <div>{card.health}</div>
-          </Card>
-          {!!(card.attackBonus?.[0] || card.healthBonus?.[0]) && (
-            <CardBonusesWrapper>
-              {card.attackBonus?.map((bonus) => (
-                <CardBonus key={bonus.type[0].type} color="#8e2a2a">
-                  {bonus.value} {bonus.type.map((b) => b.type).join(' ')}
-                </CardBonus>
-              ))}
-              {card.healthBonus?.map((bonus) => (
-                <CardBonus key={bonus.type[0].type} color="green">
-                  {bonus.value} {bonus.type.map((b) => `${b.negative ? 'non ' : ''}${b.type}`).join(' ')}
-                </CardBonus>
-              ))}
-            </CardBonusesWrapper>
-          )}
-        </div>
-      ))}
-    </CardsWrapper>
-    {!!unit.feature && <div>{unit.feature}</div>}
-    {[unit.tech1, unit.tech2, unit.tech3, unit.tech4].map((tech) => {
+    {!!item.feature && <Feature isUnit={isUnit(item)}>{item.feature}</Feature>}
+    {[item.tech1, item.tech2, item.tech3, item.tech4].map((tech) => {
       if (!tech) return null
       const techData = techs.find((t) => t.name === tech)
       if (!techData) return null
       return (
-        <div key={`${unit.name}-tech-${techData.name}`}>
+        <div key={`${item.name}-tech-${techData.name}`}>
           <Tech tech={techData} />
         </div>
       )
@@ -161,31 +167,4 @@ export const PricedItem: FC<UnitProps> = ({unit, techs}) => (
   </UnitWrapper>
 )
 
-interface Props {
-  building: TBuilding
-  units: Array<Unit>
-  mutant?: Unit
-}
-const Building: FC<Props> = ({building, units, mutant}) => {
-  const techs = TECHS[building.race]
-  return (
-    <Container>
-      <ImgWrapper>
-        <BuildImg src={building.img} alt="building" />
-        {!!building.name && (
-          <BuildPrice>
-            <Mineral>{building.minerals}</Mineral>
-            <Gas>{building.gas}</Gas>
-          </BuildPrice>
-        )}
-      </ImgWrapper>
-      <div>
-        {[...units, ...(mutant ? [mutant] : [])].map((unit) => (
-          <PricedItem key={`building-unit-${unit.name}`} unit={unit} techs={techs} />
-        ))}
-      </div>
-    </Container>
-  )
-}
-
-export default Building
+export default PricedItem
