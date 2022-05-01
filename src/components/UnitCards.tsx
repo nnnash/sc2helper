@@ -5,7 +5,7 @@ import {styled} from '@linaria/react'
 import {Attribute, BaseUnitType, Unit, UnitCard, UnitDescriptions, UnitType} from '../types/models'
 import {GlobalState} from '../redux/reducers'
 import {AttDefValue, useAttDef} from '../context'
-import {MOBILE_WIDTH} from '../constants'
+import {MOBILE_WIDTH, healthColor, attackColor} from '../constants'
 
 const Container = styled.div`
   padding: 10px;
@@ -32,7 +32,7 @@ const CardValue = styled.div<{isDefend?: boolean}>`
   margin-right: 4px;
   padding-top: 4px;
   background: #031e3a;
-  color: ${(props) => (props.isDefend ? '#{race} = useRaceProvider()' : 'red')};
+  color: ${(props) => (props.isDefend ? healthColor : attackColor)};
   text-align: center;
   font-weight: bold;
 `

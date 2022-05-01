@@ -10,6 +10,9 @@ import actions from '../redux/actions'
 const Wrapper = styled.section`
   height: 100%;
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 const TOP_MARGIN = 40
@@ -27,8 +30,7 @@ const Container = styled.div`
 `
 const Button = styled.button`
   font-size: 20px;
-  position: absolute;
-  top: 50px;
+  margin-top: 50px;
   padding: 8px 16px;
   background-color: transparent;
   border: 2px solid white;
@@ -52,6 +54,7 @@ const Comparision = () => {
   const dispatch = useDispatch()
   return (
     <Wrapper>
+      <Button onClick={() => dispatch(actions.togglePriceModal(true))}>Purchase helper</Button>
       <Container>
         <AttDefProvider attDef={AttDefValue.attack}>
           <UnitDescription />
@@ -59,7 +62,6 @@ const Comparision = () => {
         <AttDefProvider attDef={AttDefValue.defend}>
           <UnitDescription />
         </AttDefProvider>
-        <Button onClick={() => dispatch(actions.togglePriceModal(true))}>Purchase helper</Button>
       </Container>
     </Wrapper>
   )

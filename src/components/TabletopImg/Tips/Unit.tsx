@@ -6,6 +6,7 @@ import UnitTitle from '../../UnitTitle'
 import {getUnitImage} from '../../UnitImage'
 import Attributes from '../common/Attributes'
 import {blockShadow} from '../styling/shared'
+import palette from '../styling/palette'
 import Tech from '../Tips2/Tech'
 import {TECHS} from '../../../data/techs'
 
@@ -71,10 +72,10 @@ const Card = styled.div`
     height: 30px;
     width: 30px;
     background-color: #031e3a;
-    color: #48de48;
+    color: ${palette.health};
     ${blockShadow}
     :first-child {
-      color: red;
+      color: ${palette.attack};
     }
   }
 `

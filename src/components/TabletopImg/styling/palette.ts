@@ -1,3 +1,5 @@
+import {healthColor, attackColor} from '../../../constants'
+
 const palette = {
   border: '#1092d0',
   borderShadow: '#1940b5',
@@ -8,8 +10,8 @@ const palette = {
   tipsBg: 'rgba(255, 255, 255, 0.9)',
   tipsColor: '#1A3E7D',
 
-  health: '#48de48',
-  attack: 'red',
+  health: healthColor,
+  attack: attackColor,
 }
 
 export default palette

@@ -72,10 +72,10 @@ const Card = styled.div`
     height: 30px;
     width: 30px;
     background-color: #031e3a;
-    color: #48de48;
+    color: ${palette.health};
     ${blockShadow}
     :first-child {
-      color: red;
+      color: ${palette.attack};
     }
   }
 `
