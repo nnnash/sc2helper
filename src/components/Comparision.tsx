@@ -23,6 +23,7 @@ const Container = styled.div`
   min-height: calc(100vh - ${TOP_MARGIN * 2}px);
   position: sticky;
   top: ${TOP_MARGIN}px;
+  width: 100%;
 
   @media (max-width: ${MOBILE_WIDTH}px) {
     flex-direction: column;
