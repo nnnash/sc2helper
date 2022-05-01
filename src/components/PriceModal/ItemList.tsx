@@ -25,7 +25,6 @@ const ItemContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
   margin-right: 10px;
   cursor: pointer;
   &:hover {
@@ -83,7 +82,9 @@ const Item: FC<Props> = ({item}) => {
   return (
     <ItemContainer onClick={() => dispatch(actions.addPurchase(item))}>
       {item.type === PriceItemType.unit ? <UnitTitle>{item.name}</UnitTitle> : <h4>{item.name}</h4>}
-      <img src={getImgUrl(item.img)} alt={item.name} />
+      <ImgWrapper>
+        <img src={getImgUrl(item.img)} alt={item.name} />
+      </ImgWrapper>
       <Price>
         <PriceValue color="#4e4ee4">{item.minerals}</PriceValue>
         <PriceValue color="#0e880e">{item.gas}</PriceValue>
@@ -113,5 +114,11 @@ const ItemList: FC = () => {
     </Container>
   )
 }
+
+const ImgWrapper = styled.div`
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+`
 
 export default ItemList
