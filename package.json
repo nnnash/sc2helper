@@ -41,8 +41,8 @@
   },
   "scripts": {
     "dev": "react-app-rewired start",
+    "dev:img": "REACT_APP_TABLETOP_IMG=true npm run dev",
     "start": "npx http-server ./build",
-    "start:img": "REACT_APP_TABLETOP_IMG=true npm start",
     "build": "export NODE_OPTIONS=--openssl-legacy-provider && react-app-rewired build",
     "test": "react-app-rewired test --env=jsdom",
     "eject": "react-scripts eject"
