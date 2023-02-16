@@ -1327,30 +1327,30 @@
     {
       "race": "p",
       "name": "Charge",
-      "m": 1,
+      "m": 0,
       "vg": 1,
       "description": "Gets {sp}"
     },
     {
       "race": "p",
       "name": "Force field",
-      "m": 2,
-      "vg": 2,
+      "m": 1,
+      "vg": 1,
       "description": "Blocks all melee units attack and support in skirmish (both your and your opponent's)",
       "battle": "y"
     },
     {
       "race": "p",
       "name": "Guardian shield",
-      "m": 1,
-      "vg": 2,
+      "m": 0,
+      "vg": 1,
       "description": "Provides +1 health vs non melee units in every skirmish with sentry"
     },
     {
       "race": "p",
       "name": "Hallucination",
-      "m": 1,
-      "vg": 3,
+      "m": 0,
+      "vg": 2,
       "description": "Makes enemy play other card in the skirmish (from hand or deck)",
       "battle": "y"
     },
@@ -1358,29 +1358,29 @@
       "race": "p",
       "name": "Blink",
       "m": 1,
-      "vg": 2,
+      "vg": 1,
       "description": "gets {sp} and skirmish switch"
     },
     {
       "race": "p",
       "name": "Resonating glaives",
       "m": 0,
-      "vg": 2,
+      "vg": 1,
       "description": " +1 attack"
     },
     {
       "race": "p",
       "name": "Psi storm",
-      "m": 2,
-      "vg": 3,
+      "m": 1,
+      "vg": 2,
       "description": " +2 attack (+3 if attacking) & splash vs light units",
       "battle": "y"
     },
     {
       "race": "p",
       "name": "Feedback",
-      "m": 1,
-      "vg": 2,
+      "m": 0,
+      "vg": 1,
       "description": "Cancels opponent's tech card (those placed in the skirmish) & +1 attack vs psi units",
       "battle": "y"
     },
@@ -1388,14 +1388,14 @@
       "race": "p",
       "name": "Extended thermal lance",
       "m": 1,
-      "vg": 1,
+      "vg": 0,
       "description": "Gets {r}"
     },
     {
       "race": "p",
       "name": "Activate Pulsar beam",
-      "m": 1,
-      "vg": 3,
+      "m": 0,
+      "vg": 2,
       "description": " +1 attack (+1 more vs light units). If Oracle is front line unit +1 attack more",
       "battle": "y"
     },
@@ -1403,7 +1403,7 @@
       "race": "p",
       "name": "Revelation",
       "m": 0,
-      "vg": 3,
+      "vg": 1,
       "description": "Opponent plays cards open in skirmish, detector in the battle",
       "battle": "y"
     },
@@ -1411,7 +1411,7 @@
       "race": "p",
       "name": "Stasis ward",
       "m": 1,
-      "vg": 2,
+      "vg": 1,
       "description": "Both your and your opponent's attack values are 0",
       "battle": "y"
     },
@@ -1419,7 +1419,7 @@
       "race": "p",
       "name": "Prismatic alignment",
       "m": 0,
-      "vg": 2,
+      "vg": 1,
       "description": " +1 attack vs armored unit",
       "battle": "y"
     },
@@ -1427,7 +1427,7 @@
       "race": "p",
       "name": "Flux vanes",
       "m": 1,
-      "vg": 1,
+      "vg": 0,
       "description": "Gets {sp}"
     },
     {
@@ -1442,28 +1442,28 @@
       "race": "p",
       "name": "Observer",
       "m": 0,
-      "vg": 2,
+      "vg": 1,
       "description": "At the start of the battle you may pay any 1 resource to gain detector in the battle"
     },
     {
       "race": "p",
       "name": "Phasing mode",
-      "m": 3,
-      "vg": 3,
+      "m": 1,
+      "vg": 2,
       "description": "You may build gateway units both on active planet and any planet with transport"
     },
     {
       "race": "z",
       "name": "Metabolic boost",
       "m": 0,
-      "vg": 2,
+      "vg": 1,
       "description": "Gets {sp}"
     },
     {
       "race": "z",
       "name": "Burrow",
       "m": 0,
-      "vg": 2,
+      "vg": 1,
       "att": "0;0",
       "def": "6;7",
       "bonus": "c",
@@ -1481,7 +1481,7 @@
       "race": "z",
       "name": "Baneling nest",
       "m": 0,
-      "vg": 2,
+      "vg": 1,
       "description": "Allows to morph Zergling to Baneling"
     },
     {
@@ -1495,14 +1495,14 @@
       "race": "z",
       "name": "Lurker den",
       "m": 1,
-      "vg": 1,
+      "vg": 0,
       "description": "Allows to morph Hydralisk to Lurker"
     },
     {
       "race": "z",
       "name": "Neural parasite",
-      "m": 2,
-      "vg": 3,
+      "m": 1,
+      "vg": 2,
       "description": "If both infestor and opponent survives and opponent is not cloaked (or there is detection) it becomes controlled by inifestor. It should never leave the area without this infestor, otherwise it regains self control. 2 cards. can only control up to 2 units. Uses main player's top card.",
       "battle": "y"
     },
@@ -1510,15 +1510,15 @@
       "race": "z",
       "name": "Fungal growth",
       "m": 0,
-      "vg": 2,
+      "vg": 1,
       "description": "Infestor gives non melee front-line unit in its skirmish {r} & +1 attack in each skirmish.",
       "battle": "y"
     },
     {
       "race": "z",
       "name": "Microbial shroud",
-      "m": 1,
-      "vg": 2,
+      "m": 0,
+      "vg": 1,
       "description": "Infestor gives +2 health vs flying unit.",
       "battle": "y"
     },
@@ -1526,14 +1526,14 @@
       "race": "z",
       "name": "Anabolic synthesis",
       "m": 1,
-      "vg": 1,
+      "vg": 0,
       "description": "Gets {sp}"
     },
     {
       "race": "z",
       "name": "Abduct",
-      "m": 2,
-      "vg": 2,
+      "m": 1,
+      "vg": 1,
       "description": " +1 attack (and +1 more for each support non assist unit in battle who can attack this type of unit).",
       "battle": "y"
     },
@@ -1541,14 +1541,14 @@
       "race": "z",
       "name": "Blinding cloud",
       "m": 0,
-      "vg": 2,
+      "vg": 1,
       "description": "Turns opponent's front-line ground unit in the skirmish into melee"
     },
     {
       "race": "z",
       "name": "Parasitic bomb",
-      "m": 2,
-      "vg": 2,
+      "m": 1,
+      "vg": 1,
       "description": " +1 attack and linear splash in skirmish"
     },
     {
@@ -1562,15 +1562,15 @@
     {
       "race": "z",
       "name": "Morph to overseer",
-      "m": 1,
-      "vg": 3,
+      "m": 0,
+      "vg": 2,
       "description": "Every your transport gives detection to every battle on the planet it connects."
     },
     {
       "race": "z",
       "name": "Improved carapace",
-      "m": 2,
-      "vg": 2,
+      "m": 1,
+      "vg": 1,
       "description": " +1 health",
       "battle": "y"
     },
@@ -1578,21 +1578,21 @@
       "race": "z",
       "name": "Seismic Spines",
       "m": 0,
-      "vg": 2,
+      "vg": 1,
       "description": "gets {r}"
     },
     {
       "race": "z",
       "name": "Nydus network",
-      "m": 2,
-      "vg": 4,
+      "m": 1,
+      "vg": 2,
       "description": "Allows to build nydus worm on any empty or friendly area on any planet to be able to build new units in this area instead of (in addition to) active planet. To build Nydus worm just place its token on any planet without one already while doing build order on any planet. "
     },
     {
       "race": "t",
       "name": "Stim packs",
-      "m": 2,
-      "vg": 2,
+      "m": 1,
+      "vg": 1,
       "att": "7;7",
       "def": "3;4",
       "smatt": "5;5",
@@ -1601,8 +1601,8 @@
     {
       "race": "t",
       "name": "Concussive shells",
-      "m": 2,
-      "vg": 2,
+      "m": 1,
+      "vg": 1,
       "description": " +2 health vs non massive units",
       "battle": "y"
     },
@@ -1610,7 +1610,7 @@
       "race": "t",
       "name": "Nuke",
       "m": 1,
-      "vg": 4,
+      "vg": 2,
       "description": "End of the Destroy unit step: if your front-line ghost isn't destroyed, then opponent's front line unit is destroyed. Besides that all other opponent's untis in the battle that cost less than 5 resources are destroyed",
       "att": 0,
       "def": "6",
@@ -1620,8 +1620,8 @@
     {
       "race": "t",
       "name": "Cloak",
-      "m": 1,
-      "vg": 3,
+      "m": 0,
+      "vg": 2,
       "description": "gets {c}",
       "battle": "y"
     },
@@ -1629,7 +1629,7 @@
       "race": "t",
       "name": "EMP round",
       "m": 0,
-      "vg": 3,
+      "vg": 2,
       "description": "Gain +2 attack vs protoss, +1 vs psi units and Raven (resulting +3 vs psi protoss)",
       "battle": "y"
     },
@@ -1637,7 +1637,7 @@
       "race": "t",
       "name": "Infernal Pre-igniter",
       "m": 1,
-      "vg": 2,
+      "vg": 0,
       "description": " +1 attack",
       "battle": "y"
     },
@@ -1645,14 +1645,14 @@
       "race": "t",
       "name": "Hyperflight rotors",
       "m": 0,
-      "vg": 2,
+      "vg": 1,
       "description": "Gets {sp}"
     },
     {
       "race": "t",
       "name": "Build auto-turret",
       "m": 0,
-      "vg": 2,
+      "vg": 1,
       "description": " +1 attack",
       "battle": "y"
     },
@@ -1660,23 +1660,23 @@
       "race": "t",
       "name": "Interference matrix",
       "m": 1,
-      "vg": 3,
+      "vg": 1,
       "description": "Cancel support and tech cards in the skirmish",
       "battle": "y"
     },
     {
       "race": "t",
       "name": "Anti-armor missile",
-      "m": 1,
-      "vg": 3,
+      "m": 0,
+      "vg": 2,
       "description": " +1 health (and +1 attack vs armored unit)",
       "battle": "y"
     },
     {
       "race": "t",
       "name": "Yamato gun",
-      "m": 2,
-      "vg": 2,
+      "m": 1,
+      "vg": 1,
       "att": "12;12",
       "def": "10;9",
       "bonus": "r",
@@ -1686,8 +1686,8 @@
     {
       "race": "t",
       "name": "Tactical jump",
-      "m": 2,
-      "vg": 3,
+      "m": 1,
+      "vg": 1,
       "description": "Battlecruiser can jump to any free/friendly area of any planet in the end of the regroup phase"
     },
     {
@@ -1701,8 +1701,8 @@
     {
       "race": "t",
       "name": "Medivac",
-      "m": 1,
-      "vg": 3,
+      "m": 0,
+      "vg": 2,
       "description": "Each transport connecting the planet where the battle occurs gives bio units +1 health",
       "battle": "y"
     }
