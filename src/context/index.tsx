@@ -11,7 +11,7 @@ AttackDefendContext.displayName = 'AttackDefendContext'
 interface AttDefProviderProps {
   attDef: AttDefValue
 }
-export const AttDefProvider: React.FC<AttDefProviderProps> = ({attDef, children}) => {
+export const AttDefProvider: React.FC<AttDefProviderProps & {children: React.ReactNode}> = ({attDef, children}) => {
   return <AttackDefendContext.Provider value={attDef}>{children}</AttackDefendContext.Provider>
 }
 

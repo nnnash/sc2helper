@@ -81,7 +81,7 @@ const Attributes: FC = () => {
           if (attr.name && !attr.descr) {
             const attrInfo = getAttributeInfo(attr.name)
             return (
-              <AttributeDescr>
+              <AttributeDescr key={attr.name}>
                 <Icon attribute={attrInfo} />
                 <AttributeDescrText>Just marks unit as {attr.name}</AttributeDescrText>
               </AttributeDescr>
@@ -90,7 +90,7 @@ const Attributes: FC = () => {
           if (attr.name && attr.descr) {
             const attrInfo = getAttributeInfo(attr.name)
             return (
-              <AttributeDescr>
+              <AttributeDescr key={attr.name}>
                 <Icon attribute={attrInfo} />
                 <AttributeDescrText>{attr.descr}</AttributeDescrText>
               </AttributeDescr>
@@ -121,7 +121,7 @@ const Attributes: FC = () => {
               {icons: [], texts: []},
             )
             return (
-              <AttributeDescr>
+              <AttributeDescr key={attr.name}>
                 <AttributeDescr>{attrs.icons}</AttributeDescr>
                 <AttributeDescrText>{attrs.texts.join(', ')}</AttributeDescrText>
               </AttributeDescr>

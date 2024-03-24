@@ -30,7 +30,7 @@ const BuildingImgContainer = styled.div<{sc?: number}>`
     }
   }
 `
-const BuildingDownloadable: FC<{name: string}> = ({children, name}) => {
+const BuildingDownloadable: FC<{name: string; children: React.ReactNode}> = ({children, name}) => {
   const ref = useRef<HTMLDivElement>(null)
   const onClick = useCallback(() => {
     download(ref, name, {pixelRatio: 3.5})

@@ -6,7 +6,7 @@ import {FactionColor, raceByColor} from './models'
 const RaceContext = createContext<{race: Race; color: FactionColor}>({race: Race.zerg, color: FactionColor.green})
 RaceContext.displayName = 'RaceContext'
 
-export const RaceContextProvider: FC<{color: FactionColor}> = ({color, children}) => {
+export const RaceContextProvider: FC<{color: FactionColor; children: React.ReactNode}> = ({color, children}) => {
   const race = raceByColor[color]
   return <RaceContext.Provider value={{race, color}}>{children}</RaceContext.Provider>
 }

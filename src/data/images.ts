@@ -38,8 +38,10 @@ import Starport from '../img/starport.png'
 import Spore from '../img/spore.png'
 import Twilight from '../img/twilight.png'
 import SpawningPool from '../img/spawningPool.png'
+import CC from '../img/cc.png'
 
 export const images = {
+  cc: CC,
   egg: Egg,
   greaterSpire: GreaterSpire,
   nexusImproved: NexusImproved,

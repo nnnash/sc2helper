@@ -1,4 +1,4 @@
-import React, {FC} from 'react'
+import React from 'react'
 import {useSelector, shallowEqual} from 'react-redux'
 import {styled} from '@linaria/react'
 
@@ -20,7 +20,7 @@ const Container = styled.div`
     padding: 0;
   }
 `
-const List: FC = React.memo(styled.div`
+const List = React.memo(styled.div`
   flex-grow: 0;
   min-width: 120px;
   & + & {

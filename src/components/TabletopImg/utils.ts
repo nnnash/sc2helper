@@ -1,6 +1,6 @@
 import React from 'react'
 import {toJpeg} from 'html-to-image'
-import {Options} from 'html-to-image/es/options'
+import {Options} from 'html-to-image/es/types'
 
 export const download = (ref: React.RefObject<HTMLElement>, name: string, options?: Options) => {
   if (ref.current === null) {

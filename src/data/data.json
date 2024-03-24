@@ -1259,11 +1259,18 @@
     },
     {
       "race": "t",
+      "name": "Command center (base)",
+      "m": 3,
+      "vg": 0,
+      "img": "cc"
+    },
+    {
+      "race": "t",
       "name": "Planetary fortress (improved base)",
       "m": 0,
       "vg": 2,
       "img": "planetary",
-      "baseimprovement": "Provides you with +1 attack in each skirmish vs ground untis and splash against them. Planetary fortress can't move with mobilization order."
+      "baseimprovement": "Provides you with +1 attack in each skirmish vs ground units and splash against them. Planetary fortress can't move with mobilization order."
     },
     {
       "race": "t",
@@ -1611,7 +1618,7 @@
       "name": "Nuke",
       "m": 1,
       "vg": 2,
-      "description": "End of the Destroy unit step: if your front-line ghost isn't destroyed, then opponent's front line unit is destroyed. Besides that all other opponent's untis in the battle that cost less than 5 resources are destroyed",
+      "description": "End of the Destroy unit step: if your front-line ghost isn't destroyed, then opponent's front line unit is destroyed. Besides that all other opponent's units in the battle that cost less than 5 resources are destroyed",
       "att": 0,
       "def": "6",
       "smatt": 7,
@@ -2387,13 +2394,13 @@
   "events": [
     {
       "stage": 1,
-      "name": "Techological Advance\n",
+      "name": "Technological Advance",
       "amount": 2,
-      "text": "Immediately purchase the technology of your chocie at a discount of 2 resource. You may choose to add one of the purchased cards directly to your hand. Then shuffle your discard pile into your Combat deck."
+      "text": "Immediately purchase the technology of your choice at a discount of 2 resource. You may choose to add one of the purchased cards directly to your hand. Then shuffle your discard pile into your Combat deck."
     },
     {
       "stage": 1,
-      "name": "Emergency Recrouting\n",
+      "name": "Emergency Rerouting",
       "amount": 2,
       "text": "Move up to 2 of your transports to any other navigation routes",
       "alternative": "Gain 1 free transport on any navigation route."
@@ -2426,7 +2433,7 @@
     },
     {
       "stage": 1,
-      "name": "Defensice Strategy",
+      "name": "Defensive Strategy",
       "amount": 2,
       "strategy": true,
       "text": "Whenever an opponent starts a battle against you, you may draw 2 additional Combat cards."
@@ -2458,7 +2465,7 @@
       "name": "Advanced Reconnaissance",
       "amount": 2,
       "start": "the battle",
-      "text": "Your opponent must play his Combat cards first in the battle, and he must place them all faceup."
+      "text": "Your opponent must play his Combat cards first in the battle, and he must place them all face-up."
     },
     {
       "stage": 1,
@@ -2534,7 +2541,7 @@
       "stage": 2,
       "name": "Rich Vein",
       "amount": 2,
-      "text": "Immediately gain 4 free workers and place them in your Worker Pool area. You may then remove a partially depleted token from one resource of your choice. (If you do, also flip the corresponding Resource card faceup.)"
+      "text": "Immediately gain 4 free workers and place them in your Worker Pool area. You may then remove a partially depleted token from one resource of your choice. (If you do, also flip the corresponding Resource card face-up.)"
     },
     {
       "stage": 2,
@@ -2650,7 +2657,7 @@
       "stage": 3,
       "name": "Accelerated Progress",
       "amount": 2,
-      "text": "Draw the top card of the Event deck and immedialy execute it."
+      "text": "Draw the top card of the Event deck and immediately execute it."
     },
     {
       "stage": 3,

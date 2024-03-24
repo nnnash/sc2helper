@@ -28,11 +28,5 @@ module.exports = {
     react: {
       version: 'detect',
     },
-  },
-  // extends: ['plugin:react/recommended', 'plugin:@typescript-eslint/recommended', 'prettier'],
-  // plugins: ['@typescript-eslint', 'prettier'],
-  // parserOptions: {
-  //   tsconfigRootDir: __dirname,
-  //   project: './tsconfig.json',
-  // },
+  }
 }

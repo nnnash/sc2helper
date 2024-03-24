@@ -112,10 +112,10 @@ const Purchases: FC = () => {
         Gas left: <b>{gasLeft}</b>
       </LeftValue>
       <SpentValue color={M_COLOR}>
-        Minerals spent: <b>{spent[0]}</b> ({Math.max(spent[0] - initialMinerals, 0)})
+        Minerals spent: <b>{spent[0]}</b>
       </SpentValue>
       <SpentValue color={G_COLOR}>
-        Gas spent: <b>{spent[1]}</b> ({Math.max(spent[1] - initialGas, 0)})
+        Gas spent: <b>{spent[1]}</b>
       </SpentValue>
       {purchases.map((item, ind) => (
         <li key={`purchase-${item.name}-${ind}`} onClick={() => dispatch(actions.removePurchase(ind))}>

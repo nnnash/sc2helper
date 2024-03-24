@@ -12,7 +12,7 @@ const Trigger = styled.div`
 interface Props {
   name: string
 }
-const Collapse: FC<Props> = ({children, name}) => {
+const Collapse: FC<Props & {children: React.ReactNode}> = ({children, name}) => {
   const [open, setOpen] = useState(false)
   return (
     <div>
