@@ -1,23 +1,23 @@
 import React from 'react'
 import {styled} from '@linaria/react'
 
+import {button, colors} from '../styling/theme'
+
 const Container = styled.div`
   display: flex;
   justify-content: center;
+  gap: 6px;
 `
 const Button = styled.button`
-  border: 1px solid white;
-  color: white;
-  background: transparent;
-  outline: none;
   padding: 8px 16px;
-  cursor: pointer;
+  font-size: 13px;
+  ${button}
   &[data-selected='true'] {
-    color: black;
-    background: white;
-  }
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.16);
+    color: #041018;
+    background: linear-gradient(180deg, ${colors.edgeBright}, ${colors.edge});
+    border-color: ${colors.edgeBright};
+    box-shadow: 0 0 16px ${colors.glowStrong};
+    font-weight: 700;
   }
 `
 

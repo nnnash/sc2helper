@@ -10,6 +10,7 @@ import Footer from './Footer'
 import {BOTTOM_WIDTH, MIDDLE_WIDTH, MOBILE_WIDTH, TOP_WIDTH} from '../constants'
 import {GlobalState} from '../redux/reducers'
 import PriceModal from './PriceModal'
+import {colors} from '../styling/theme'
 
 const Container = styled.div`
   display: flex;
@@ -58,7 +59,9 @@ const Lists = styled.section<{isRight?: boolean; open: boolean}>`
         return (isRight ? -1 : 1) * LIST_PANE_WIDTH_MOBILE
       }}px
     );
-    background: #031e3a;
+    background: linear-gradient(180deg, rgba(10, 31, 56, 0.97), rgba(4, 16, 31, 0.97));
+    border: 1px solid ${colors.edge};
+    box-shadow: 0 0 26px ${colors.glow};
     padding: 10px;
   }
 `
@@ -69,7 +72,7 @@ const Main = () => {
     shallowEqual,
   )
   return (
-    <>
+    <div className="sc2-app">
       <Container>
         <AttDefProvider attDef={AttDefValue.attack}>
           <Lists open={attackListOpen}>
@@ -103,7 +106,7 @@ const Main = () => {
       </Container>
       <Footer />
       <PriceModal />
-    </>
+    </div>
   )
 }
 

@@ -7,6 +7,7 @@ import actions from '../../redux/actions'
 import ItemList from './ItemList'
 import Purchases from './Purchases'
 import {MIDDLE_WIDTH} from '../../constants'
+import {brackets, colors} from '../../styling/theme'
 
 interface Props {
   open: boolean
@@ -17,7 +18,8 @@ const Container = styled.div<Props>`
   bottom: 0;
   left: 0;
   right: 0;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(2, 8, 16, 0.82);
+  backdrop-filter: blur(3px);
   z-index: 1000;
   display: flex;
   align-items: center;
@@ -25,11 +27,14 @@ const Container = styled.div<Props>`
   visibility: ${(props) => (props.open ? 'visible' : 'hidden')};
 `
 const Content = styled.section`
+  position: relative;
   width: 80%;
   height: 80%;
-  background: #031e3a;
-  border: 6px solid white;
+  background: linear-gradient(160deg, rgba(12, 36, 62, 0.98), rgba(4, 16, 31, 0.99));
+  border: 2px solid ${colors.edge};
+  box-shadow: 0 0 40px ${colors.glow}, inset 0 1px 0 rgba(120, 200, 255, 0.3);
   display: flex;
+  ${brackets(20)}
   @media (max-width: ${MIDDLE_WIDTH}px) {
     width: 100%;
   }
@@ -37,6 +42,8 @@ const Content = styled.section`
 const FormWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  border-left: 1px solid rgba(43, 127, 184, 0.4);
+  background: rgba(3, 12, 24, 0.5);
 `
 const Scrollable = styled.div`
   overflow: auto;

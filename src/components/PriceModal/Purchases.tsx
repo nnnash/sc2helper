@@ -5,30 +5,36 @@ import {styled} from '@linaria/react'
 import {GlobalState} from '../../redux/reducers'
 import actions from '../../redux/actions'
 import {getImgUrl} from '../../utils'
+import {colors, fonts} from '../../styling/theme'
 
-const M_COLOR = '#7c7cd2'
-const G_COLOR = '#37ce37'
+const M_COLOR = colors.mineral
+const G_COLOR = colors.gas
 
 const Container = styled.ul`
   margin-top: 10px;
-  color: white;
+  color: ${colors.text};
   list-style: none;
   padding: 0 8px;
 
   li {
-    margin: 8px 0;
+    margin: 6px 0;
+    padding: 4px;
     cursor: pointer;
     display: flex;
     align-items: center;
+    border-left: 2px solid transparent;
+    transition: background-color 0.15s, border-color 0.15s;
     &:hover {
-      background-color: rgba(0, 0, 0, 0.55);
+      background-color: rgba(43, 127, 184, 0.25);
+      border-left-color: ${colors.edgeBright};
     }
   }
 `
 const Image = styled.img`
   width: 30px;
   height: 30px;
-  background: grey;
+  background: rgba(3, 12, 24, 0.8);
+  border: 1px solid ${colors.edge};
   border-radius: 50%;
   margin-right: 8px;
 `
@@ -36,22 +42,27 @@ const Name = styled.span`
   flex-grow: 1;
 `
 const PriceValue = styled.span<{color: string}>`
+  font-family: ${fonts.display};
   font-weight: bold;
   color: ${(props) => props.color};
-  margin-left: 4px;
+  margin-left: 6px;
 `
 const LeftValue = styled.div<{exceeded: boolean}>`
   b {
+    font-family: ${fonts.display};
     font-weight: bold;
-    font-size: 20px;
-    color: ${(props) => (props.exceeded ? 'red' : 'inital')};
+    font-size: 18px;
+    color: ${(props) => (props.exceeded ? colors.danger : colors.textBright)};
+    text-shadow: ${(props) => (props.exceeded ? `0 0 10px ${colors.danger}` : 'none')};
   }
 `
 const SpentValue = styled.div<{color: string}>`
   b {
+    font-family: ${fonts.display};
     font-weight: bold;
-    font-size: 20px;
+    font-size: 18px;
     color: ${(props) => props.color};
+    text-shadow: 0 0 10px currentColor;
   }
 `
 

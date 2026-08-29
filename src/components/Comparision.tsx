@@ -6,6 +6,7 @@ import {AttDefProvider, AttDefValue} from '../context'
 import {MOBILE_WIDTH} from '../constants'
 import {useDispatch} from 'react-redux'
 import actions from '../redux/actions'
+import {button} from '../styling/theme'
 
 const Wrapper = styled.section`
   height: 100%;
@@ -30,24 +31,16 @@ const Container = styled.div`
   }
 `
 const Button = styled.button`
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: 700;
   margin-top: 50px;
-  padding: 8px 16px;
-  background-color: transparent;
-  border: 2px solid white;
-  color: white;
-  cursor: pointer;
-  &:hover {
-    background-color: rgba(255, 255, 255, 0.13);
-  }
+  padding: 12px 28px;
+  ${button}
   @media (max-width: ${MOBILE_WIDTH}px) {
     top: 10px;
     left: 10px;
-    padding: 2px 4px;
-    font-size: 1em;
-    border-color: #031e3a;
-    color: #031e3a;
-    background-color: white;
+    padding: 6px 12px;
+    font-size: 13px;
   }
 `
 

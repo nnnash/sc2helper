@@ -8,6 +8,7 @@ import actions from '../../redux/actions'
 import {GlobalState} from '../../redux/reducers'
 import SelectButton from '../SelectButton'
 import {styled} from '@linaria/react'
+import {colors} from '../../styling/theme'
 
 export const RaceChooser: FC = () => {
   const dispatch = useDispatch()
@@ -41,10 +42,13 @@ export const ItemTypeChooser: FC = () => {
 }
 
 const SliderText = styled.h5`
-  color: white;
+  color: ${colors.text};
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
   font-weight: bold;
-  margin-top: 4px;
-  margin-bottom: 2px;
+  margin-top: 10px;
+  margin-bottom: 6px;
 `
 interface SlidersProps {
   minerals: number
@@ -55,11 +59,13 @@ interface SlidersProps {
   hasMin?: boolean
 }
 const handleStyle = {
-  borderColor: 'white',
-  backgroundColor: '#031e3a',
+  borderColor: colors.edgeBright,
+  backgroundColor: colors.panelSolid,
+  boxShadow: `0 0 10px ${colors.glowStrong}`,
+  opacity: 1,
 }
 const trackStyle = {
-  backgroundColor: 'grey',
+  background: `linear-gradient(90deg, ${colors.edge}, ${colors.edgeBright})`,
 }
 const Sliders: FC<SlidersProps> = ({minerals: m, gas: g, text, actionM, actionG, hasMin = false}) => {
   const dispatch = useDispatch()

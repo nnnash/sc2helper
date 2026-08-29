@@ -11,10 +11,20 @@ import {AttDefValue, useAttDef} from '../context'
 import actions from '../redux/actions'
 import {MIDDLE_WIDTH, MOBILE_WIDTH} from '../constants'
 import {getAttributeInfo, getIcons} from '../utils'
+import {brackets, colors, fonts, inset, panel} from '../styling/theme'
 
 const Title = styled.h2<{isDefender?: boolean}>`
-  color: ${(props) => (props.isDefender ? '#126312' : '#8e2929')};
+  color: ${(props) => (props.isDefender ? colors.health : colors.attack)};
+  font-family: ${fonts.display};
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
   text-align: center;
+  margin: 0 0 12px;
+  padding: 10px 0 8px;
+  text-shadow: 0 0 12px currentColor, 0 1px 2px rgba(0, 0, 0, 0.9);
+  border-bottom: 1px solid rgba(43, 127, 184, 0.45);
   @media (max-width: ${MIDDLE_WIDTH}px) {
     cursor: pointer;
     &:hover {
@@ -22,14 +32,19 @@ const Title = styled.h2<{isDefender?: boolean}>`
     }
   }
   @media (max-width: ${MOBILE_WIDTH}px) {
-    font-size: 14px;
+    font-size: 13px;
+    letter-spacing: 0.1em;
     margin: 4px;
+    padding: 4px 0;
   }
 `
 const Container = styled.div`
+  position: relative;
   margin: 20px;
-  background: rgba(255, 255, 255, 0.7);
+  padding: 0 0 10px;
   width: 100%;
+  ${panel}
+  ${brackets(16)}
   @media (max-width: ${MOBILE_WIDTH}px) {
     margin: 4px;
   }
@@ -41,7 +56,10 @@ const UnitBG = styled.div`
   width: 100%;
   min-height: 80px;
   padding: 20px 10px 10px;
-  background: rgba(0, 0, 0, 0.5);
+  margin-bottom: 10px;
+  ${inset}
+  border-left: none;
+  border-right: none;
   @media (max-width: ${MOBILE_WIDTH}px) {
     min-height: 30px;
   }
@@ -49,15 +67,30 @@ const UnitBG = styled.div`
 const DescriptionBG = styled.div`
   min-height: 200px;
 `
+// The attribute glyph colours are shared with the printable tabletop cards and
+// are tuned for a light background, so the row gets its own lit readout plate
+// rather than sitting directly on the dark console panel. No clip-path here —
+// it would cut off the icon tooltips that pop out above the row.
 const Attributes = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  align-items: center;
+  margin: 0 12px 12px;
+  padding: 8px 6px;
+  background: linear-gradient(180deg, rgba(206, 227, 242, 0.94), rgba(163, 197, 220, 0.9));
+  border: 1px solid ${colors.edgeBright};
+  box-shadow: 0 0 14px ${colors.glow}, inset 0 1px 0 rgba(255, 255, 255, 0.85);
+  @media (max-width: ${MOBILE_WIDTH}px) {
+    margin: 0 6px 8px;
+    padding: 4px 2px;
+  }
 `
 const FeatureText = styled.p`
-  padding: 0 10px;
-  font-size: 14px;
-  color: #031e3a;
+  padding: 0 14px;
+  font-size: 15px;
+  line-height: 1.4;
+  color: ${colors.text};
 `
 
 const UnitDescription = () => {

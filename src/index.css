@@ -1,3 +1,7 @@
+/* The font and text colour stay on `body` as they were: the tabletop card
+   generator (REACT_APP_TABLETOP_IMG) renders through the same document and its
+   print layouts are tuned to these metrics. The SC2 console theme is applied
+   under .sc2-app instead, which only wraps the main app. */
 body {
   margin: 0;
   font-family: 'PT Mono', Arial, sans-serif;
@@ -9,7 +13,41 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-color: #031e3a;
+  background-color: #04101f;
+}
+
+/* Darkens the wallpaper and lays a faint console grid over it, so the
+   holographic panels above stay readable. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: radial-gradient(ellipse at 50% 0%, rgba(4, 16, 31, 0.35), rgba(4, 16, 31, 0.88) 70%),
+    linear-gradient(rgba(89, 200, 245, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(89, 200, 245, 0.045) 1px, transparent 1px);
+  background-size: 100% 100%, 48px 48px, 48px 48px;
+}
+
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+.sc2-app {
+  font-family: 'Rajdhani', 'PT Mono', Arial, sans-serif;
+  font-size: 16px;
+  color: #cfe6f5;
+}
+
+.sc2-app h1,
+.sc2-app h2,
+.sc2-app h3,
+.sc2-app h4,
+.sc2-app h5 {
+  font-family: 'Orbitron', 'PT Mono', monospace;
+  letter-spacing: 0.06em;
 }
 
 code {
@@ -19,4 +57,36 @@ code {
 
 * {
   box-sizing: border-box;
+}
+
+/* Console scrollbars */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: rgba(3, 12, 24, 0.8);
+}
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #2b7fb8, #123a5e);
+  border: 1px solid #59c8f5;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #59c8f5, #1c5c8e);
+}
+
+/* rc-slider overrides so the resource sliders match the console */
+.rc-slider-rail {
+  background-color: rgba(3, 12, 24, 0.9) !important;
+  border: 1px solid rgba(43, 127, 184, 0.5);
+}
+.rc-slider-track {
+  background: linear-gradient(90deg, #1c5c8e, #59c8f5) !important;
+  box-shadow: 0 0 8px rgba(89, 200, 245, 0.6);
+}
+.rc-slider-handle {
+  border: 2px solid #59c8f5 !important;
+  background-color: #0a1f38 !important;
+  box-shadow: 0 0 10px rgba(89, 200, 245, 0.7) !important;
+  opacity: 1 !important;
 }

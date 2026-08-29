@@ -1,17 +1,25 @@
 import React from 'react'
 import {styled} from '@linaria/react'
 import {MOBILE_WIDTH} from '../constants'
+import {colors} from '../styling/theme'
 
 const Container = styled.footer`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 10px 30px 20px;
-  background: #031e3a;
-  color: white;
+  padding: 14px 30px 20px;
+  background: linear-gradient(180deg, rgba(10, 31, 56, 0.95), rgba(4, 16, 31, 0.98));
+  border-top: 1px solid ${colors.edge};
+  box-shadow: 0 -6px 24px rgba(35, 150, 220, 0.18);
+  color: ${colors.textDim};
   font-size: 14px;
   & a {
-    color: #0b71db;
+    color: ${colors.edgeBright};
+    text-decoration: none;
+    &:hover {
+      text-shadow: 0 0 8px ${colors.glowStrong};
+      text-decoration: underline;
+    }
   }
   @media (max-width: ${MOBILE_WIDTH}px) {
     padding: 4px;
@@ -21,7 +29,11 @@ const Container = styled.footer`
   }
 `
 const Title = styled.h4`
-  color: white;
+  color: ${colors.amber};
+  font-size: 12px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
 `
 
 const Footer = () => (

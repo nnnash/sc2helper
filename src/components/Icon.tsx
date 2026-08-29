@@ -2,6 +2,7 @@ import React, {CSSProperties} from 'react'
 import {styled} from '@linaria/react'
 
 import {AttributeInfo} from '../types/models'
+import {colors, fonts} from '../styling/theme'
 
 const SIZE = 30
 
@@ -9,11 +10,17 @@ const Tooltip = styled.div`
   position: absolute;
   bottom: 110%;
   right: 0;
+  z-index: 10;
   visibility: hidden;
-  color: white;
-  background: #031e3a;
-  border: 2px solid white;
-  padding: 4px;
+  font-family: ${fonts.display};
+  font-size: 11px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: ${colors.textBright};
+  background: linear-gradient(160deg, rgba(18, 48, 79, 0.97), rgba(4, 16, 31, 0.97));
+  border: 1px solid ${colors.edgeBright};
+  box-shadow: 0 0 16px ${colors.glow};
+  padding: 6px 8px;
   white-space: nowrap;
   transform: scale(0.6);
   opacity: 0;
@@ -49,9 +56,13 @@ const SubIconsContainer = styled.div<{ml?: number}>`
 const SubText = styled.div`
   transform: translateY(6px);
   z-index: 1;
+  font-size: 12px;
+  font-weight: 600;
+  color: #031e3a;
 `
 const ValueBonusText = styled.div<{size: number}>`
   color: #031e3a;
+  font-family: ${fonts.display};
   margin-left: ${(p) => -p.size + 'px'};
   font-size: ${(p) => p.size + 'px'};
   font-weight: bold;
